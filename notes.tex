@@ -1,0 +1,568 @@
+\documentclass[a4, 12pt, english, USenglish]{scrreprt}
+% \usepackage{venn}
+\usepackage[latin1]{inputenc}
+\usepackage{makeidx}
+% \usepackage{pdftricks}
+\usepackage{graphicx}
+% \usepackage[final]{pdfpages}
+
+\usepackage{geometry, upgreek, booktabs, babel}
+\usepackage[journal=rsc,xspace=true]{chemstyle}
+\usepackage[version=3]{mhchem}
+% \usepackage[footnotes]{notes2bib}
+\usepackage[final]{microtype}
+\usepackage[final, inactive]{pst-pdf}
+\usepackage[colorlinks]{hyperref}
+
+% equals with a "set" on top
+\newcommand{\defeq}{\ensuremath{\stackrel{\mbox{set}{=}}}}
+
+
+\renewcommand{\topfraction}{.85}
+\renewcommand{\bottomfraction}{.7}
+\renewcommand{\textfraction}{.15}
+\renewcommand{\floatpagefraction}{.66}
+\renewcommand{\dbltopfraction}{.66}
+\renewcommand{\dblfloatpagefraction}{.66}
+\setcounter{topnumber}{9}
+\setcounter{bottomnumber}{9}
+\setcounter{totalnumber}{20}
+\setcounter{dbltopnumber}{9}
+
+
+\newcommand{\xscreenshot}[2]{
+\begin{figure}[htb]
+\begin{center}
+\em Missing imagefile file #1
+\end{center}
+\label{#1}
+\caption{#2}
+\end{figure}}
+
+\newcommand{\zcreenshot}[3]{
+\begin{figure}[htb]
+\includegraphics[width=#3]{screenshots/#1.jpg}
+\label{#1}
+\caption{#2}
+\end{figure}}
+
+\newcommand{\screenshot}[2]{
+\begin{figure}[htb]
+\includegraphics[width=150mm]{screenshots/#1.jpg}
+\label{#1}
+\caption{#2}
+\end{figure}}
+
+
+
+
+
+\newcommand{\sscreenshot}[3]{
+\begin{figure}[htb]
+\includegraphics[width=7500mm]{screenshots/#1.jpg}
+\label{#2}
+\caption{#3}
+\end{figure}}
+
+% XXX Should put a little arrow above its parameter.
+\newcommand{\vectorXX}[1]{\ensuremath{#1}}
+
+\newcommand{\fApartial}[1]{\ensuremath{\frac{\partial f}{\partial A_{#1}}}}
+\newcommand{\jpartial}[1]{\ensuremath{\frac{\partial J}{\partial \theta_{#1}}}}
+\newcommand{\thetaipartial}{\ensuremath{\frac{\partial}{\partial{\theta_i}}}}
+\newcommand{\thetapartial}{\ensuremath{\frac{\partial}{\partial{\theta}}}}
+\newcommand{\half}{\ensuremath{\frac{1}{2}}}
+\newcommand{\sumim}{\ensuremath{\sum_{i=1}^{m}}}
+\newcommand{\intinf}{\ensuremath{\int_{-\infty}^{\infty}}}
+\newcommand{\Ft}{\ensuremath{{\cal{F}}}}
+\newcommand{\ft}[1]{\ensuremath{{\cal{F}}({#1})}}
+
+\newcommand{\sinc}[1]{\ensuremath{\mbox{sinc}{#1}}}
+
+
+\newcommand{\bb}[1]{\ensuremath{{\bf{#1}}}} % XXX Should be blackboard bold
+\newcommand{\proj}[2]{\ensuremath{{\bb {#1}}_{#2}}}
+\newcommand{\braces}[1]{\ensuremath{\left\{{#1}\right\}}}
+\newcommand{\brackets}[1]{\ensuremath{\left[{#1}\right]}}
+\newcommand{\parens}[1]{\ensuremath{\left({#1}\right)}}
+\newcommand{\absval}[1]{\ensuremath{\left|{#1}\right|}}
+\newcommand{\sqbraces}[1]{\ensuremath{\left[{#1}\right]}}
+\newcommand{\commutator}[2]{\sqbraces{{#1}, {#2}}}
+
+
+\newcommand{\dyad}[1]{\ensuremath{\ket{{#1}}\bra{{#1}}}}
+\newcommand{\trace}[1]{\ensuremath{\mbox{tr}\, {#1} }}
+\newcommand{\erf}[1]{\mbox{erf}\left(#1\right)}
+\newcommand{\erfc}[1]{\mbox{erfc}\left(#1\right)}
+\newcommand{\mXXX}[1]{\marginpar{\tiny{\bf Rmz:} {\it #1}}}
+\newcommand{\celcius}{\ensuremath{^\circ}C}
+
+\newcommand{\ev}[1]{\ensuremath{\left\langle{}#1{}\right\rangle}}
+\newcommand{\ket}[1]{\ensuremath{\mid{}#1{}\rangle}}
+\newcommand{\bra}[1]{\ensuremath{\langle{}#1{}\mid}}
+\newcommand{\braKet}[2]{\ensuremath{\left\langle{}#1{}\mid{#2}\right\rangle}}
+\newcommand{\BraKet}[3]{\ensuremath{\left\langle{}#1{}\mid{#2}\mid{#3}\right\rangle}}
+\newcommand{\evolvesto}[2]{\ensuremath{{#1}\mapsto{#2}}}
+\newcommand{\inrange}[3]{\ensuremath{{#1} \in \braces{{#2}, \ldots,{#3}}}}
+
+\newenvironment{wikipedia}[1]
+{
+ {\bf From wikipedia: {\it #1}}
+ \begin{quote}
+}
+{
+ \end{quote}
+}
+
+\newcommand{\idx}[1]{{\em #1}\index{#1}}
+\newcommand{\idX}[1]{{#1}\index{#1}}
+
+\usepackage{url}
+\newcommand{\tm}{\ensuremath{^{\mbox{tm}}}}
+\newcommand{\aangstrom}{\AA{}ngstr\"{o}m{}\ }
+%\newcommand{\aaunit}{\mbox{\AA}} % Just use A with ring, once encoding works properly
+\newcommand{\aaunit}{\angstrom} % Just use A with ring, once encoding works properly
+\newcommand{\munchen}{M\"unchen}
+\newcommand{\zurich}{Z\"urich}
+\newcommand{\schrodinger}{Schr\"odinger}
+\newcommand{\ReneJustHauy}{Ren\'e-Just Ha\"uy}
+
+%% Lavousier (with a lot fo weird spelling)
+
+
+%% Crystallographic notation
+%Coordinate
+\newcommand{\crCoord}[3]{\mbox{\(#1,#2,#3\)}}
+%Direction
+\newcommand{\crDir}[3]{\mbox{\(\left[#1 #2 #3\right]\)}}
+%Family of directions
+\newcommand{\crDirfam}[3]{\mbox{\(\left<{}#1 #2 #3\right>\)}}
+%Plane
+\newcommand{\crPlane}[3]{\mbox{\(\left(#1 #2 #3\right)\)}}
+%Family of planes
+\newcommand{\crPlanefam}[3]{\left\{#1 #2 #3\right\}}
+
+\newcommand{\oneCol}[2]{
+  \ensuremath{\left(\begin{array}{r}{#1}\\{#2}\end{array}\right)}
+}
+
+\newcommand{\twoCol}[4]{
+  \ensuremath{\left(\begin{array}{rr}{#1}&{#2}\\{#3}&{#4}\end{array}\right)}
+}
+
+%Negative number
+\newcommand{\crNeg}[1]{\bar{#1}}
+
+\makeindex
+
+\begin{document}
+
+\title{Lecture notes from the course \\
+Statistical Mechanics (PHY 29)\\
+taught by \\
+Leonard Susskind \\
+Sprint 2009}
+
+\author{Bj\o{}rn Remseth \\ rmz@rmz.no}
+
+\maketitle
+\tableofcontents
+
+% Comment out this in final version!
+
+% \parskip=\bigskipamount
+% \parindent=0pt.
+
+\begin{abstract}
+
+\end{abstract}
+
+\chapter*{Introduction}
+
+These are my notes for the course in Statistical Mechanics (Stanford U.) taught by
+Leonard Susskind.    
+
+I usually watched the videos while typing notes in \LaTeX.  I have
+experimented with various note-taking techniques including free text,
+mindmaps and handwritten notes, but I've ended up using \LaTeX, since
+it's not too hard, it gives great readability for the math that
+inevitably pops up in the things I like to take notes about, and it's
+easy to include various types of graphics.  The graphics in this video
+is exclusively screenshots copied directly out of the videos, and to a
+large extent, but not  completely, the text is based on Susskind's
+narrative.   I haven't been very creative, that wasn't my purpose.  I
+did take more screenshots than are actually available in this text.
+Some of them are indicated in figures stating that a screenshot is
+missing.  I may or may not get back to putting these missing
+screenshots back in, but for  now the are just not there.  Deal with
+it .-)
+
+This document will every now and then be made available on
+\url{http://dl.dropbox.com/u/187726/statistical-mechanics-notes.pdf}.   The
+source code can be cloned on git on \url{https://github.com/la3lma/statistical-mechanics}.
+
+
+A word of warning: These are just my notes.  They should't be
+interpreted as anything else.  I take notes as an aid for myself.
+When I take notes I find myself spending more time with the subject at
+hand, and that alone lets me remember it better.  I can also refer to
+the notes, and since I've written them myself, I usually find them
+quite useful.   I state this clearly since the use of \LaTeX\ will
+give some typographical cues that may lead the unwary reader to
+believe that this is a textbook or something more ambitious.  It's
+not.  This is a learning tool for me.  If anyone else reads this and
+find it useful, that's nice. I'm happy,  for you, but I didn't have
+that, or you in mind when writing this.   That said, if you have any
+suggestions to make the text or presentation better, please let me
+know.  My email address is la3lma@gmail.com.
+
+\chapter{Introduction}
+
+
+The first lecture starts with a longish quote, so I'll quote it in
+full:
+
+\begin{quote}
+Statistical mechanics is often thought of as the theory of how atoms
+comine to form gases liquids solids and even plasmas and black body
+radiation.   But it is both much more and less than thhat.
+Statistical mechanics is a useful tools in many areas of science where
+a large number of variables has to be dealt with using statistical
+methods.
+\end{quote}
+
+
+Here he breaks from reading the quote to interject: `` My son who studies neural networks uses, in fact about six
+months ago he called me up and said ``pop, did you ever hear about
+this thing called the partition function and I'm just learning about
+it for using it in Neural Networks.''
+
+\begin{quote}
+
+I have no doubt that some of the financial wizards of AIG and Lehman
+brothers used it.  Saying that statistical mechanics is the theory of
+gases is rather like saying that calculus is the theory of planetary orbits.
+
+\end{quote}
+
+What it really is is a mathematical structure with application
+application.  Putting it in a nutshell, one can perhaps say that
+statistical mechanics is just probability theory.  Now Susskind has
+never understood the difference between statistics and probabilities.
+It is probabilities under certain specific circumstanses.
+
+It is however a bit tricky to say actually how statistical mechanics
+really connects to reality.   rmz:  This is perhaps just a way of
+saying that statistical mechanics is a purely empirical branch of
+physics :-)
+
+Let's start with coinflipping (fair coin, equal probabilities of heads
+and tails that sums to one).  A convincing argument that leads to the
+fairness, is that coins are fairly symmetrical (apart from some small
+details).
+
+There is a notion of a-priori probability, in this case because it is
+a symmetry.
+
+
+Let's take another example, take a dice. There a are six sides, that
+are named after colors (r, y, b, g,  o, p).   The six sides of the die
+are symmetric.  There is a symmetry operation of turning the die  90
+degrees about any axis.  If you believe that the die is symmetric
+enough, then you are forced to believe that the probability of getting
+any one of the color is 1/6.  However in most situations there aren't
+such symmetries.
+
+When there aren't such symmetries, is there starting point where you
+can start thinking about such probabilities?  The answer is ``not
+obviously'', but let's look at an example. Let's consider a die where
+we replace the purple color by red.
+
+\screenshot{purplered}{Purple side of die replaced by red color.}
+
+It now have five colors.  You have no reason to believe there is no
+symmetry.  So what is the probability of flipping a red, so if you
+didn't know better you would perhaps say that the probability of
+flipping red was 1/5 but in fact it is (of course) 2/6 (= 1/3).  The
+reason is that the real symmetry of the system acts on the six faces
+not on the five colors.  But it is very easy to assume that a die
+doesn't have any symmetry at all, that is weighted and off balance
+(unfair die).  And then, where would you get your a priori
+probabilities from.  Well, one way would be to flip it a zillion times
+and then count how many of the different colors you got, but that's
+not we're gonna do.  So somewhere else we have to get the idea of a
+prior probabilities.  We might go back astep and say ``if the die is
+not a fair die, then the probabilities may depend on all kinds of
+things, it may depend on details such as the way the hand flips it,
+the air currents in the room, the way the surface it may or may not
+bounce off that are extraneous to the system itself and of course it
+may be depend on the environment and not the system itself''.  So
+let's introduce one element.  Let's think of the die as a dynamical
+system that changes with time according to some law of motion.  If you
+know what the system is at one instance in time, you will know what it
+is at the next instance in time.  Now, with the motion of particles
+the motion is smooth and you can divide it into infinitesimal amounts
+of time. For a die it is (perhaps) a bit difference.  Assume that the
+die performs one operation per \index{elementary} time interval, and
+at each time the die rearranges itself only depending on what is shown
+at the top of the die.   You can then represent the motion of a  die
+as a rule:
+
+\screenshot{dynamictheory}{Purple side of die replaced by red color.}
+
+\[
+\begin{array}{lcl}
+R \rightarrow B \\
+B \rightarrow Y\\
+Y \rightarrow G\\
+O \rightarrow P\\
+P \rightarrow R\\
+\end{array}
+\]
+
+That would be a complete dynamical theory for colors of the dice.
+Now assuming that the state succession is very fast, then it is very
+clear that there will be an equal probabilty of any one of the six
+colors, since they spend the same amount of time being in the same
+state.
+
+If you change some of the colors, each state would still occupy 1/6 of
+the time, so there are many possible laws.  However, there are other
+laws that don't give an answer altogether, here is an example:
+
+\[
+\begin{array}{lcl}
+R \rightarrow B \\
+B \rightarrow G\\
+Y \rightarrow P\\
+P \rightarrow O\\
+O \rightarrow Y\\
+\end{array}
+\]
+
+In every state of the system the system says what the system should do
+but it has the funny property of having two orbits or cycles.  Now,
+there is no way a priori to konw which cycle you are in.  So this is a
+counterexample that there is equal a priori probability of being in a
+state.  However, the two-cycle example has something called a
+preserved state.   Let's call it Z (``zilch'').  It's 1 for the RGB orbit, and 
+and 0 for the YPO orbit.  The zilch is preserved, this is a
+conservation law.  So in this case, and indeed in any case a
+conservation law means that the system breaks up into different orbits
+with each orbit representing some conserved quantity.
+
+You now have two possibilities, either you fix the zilch, you then
+have equal probabilities of the different states with the preserved
+quantum number (zilch), and the other possibility is you only may know
+statistical information about the states then you use that.
+
+In physics, or at least in thermodynamics, energy  is the most
+important conserved quantity.  Momentum isn't so important.  The
+reason is that when thinking about systems contained within
+containers, and in statistical mechanics that's what we usually do.
+When a molecule bump into the container it  gives a little momentum,
+but it's not so important.  Electric charge can be important.  Angular
+momentum usually don't matter that much.
+
+Now a simple rule could be that you take all the conserved quantities
+and fix them, then you study the system subject to the constraint that
+the conserved quantities have certain values.  That's the essence of
+statistical mechanics: Calculating probabilities of things happening
+subject to constraints that usually take form that some (one or more)
+conserved quantity is fixed.
+
+Using two dice we can think up an example.  We now number the sides
+from 1 to 6.  The rule is now that the dice interact in the sense that
+when one flip the other flips.   They flip in such a way that the sum
+of the numbers don't change.  Each number has a cycle associated with
+it, so (1,1) must go to (1,1).   The 3 cycle flips between (1,2) and
+(2,1)   and so forth. There are a bunch of disconnected orbits.   Once
+you fix the sum, you can throw away all the others and concentrate on
+the subsystem you're interesting in.
+
+The most important conserved quantity is energy so that is where most
+of our energy will be conserved.   In chemistry there are more, for
+instance the number of instances of atoms ofthe various elements are
+conserved.  In nuclear physics there are other conserved quantities.
+
+But let us go a step back and look at information. Information plays a
+very great role.  Let's look at a much worse rule of movement than the
+ones above.
+
+\[
+\begin{array}{lcl}
+R \rightarrow R \\
+B \rightarrow R \\
+B  \rightarrow R\\
+O  \rightarrow R\\
+P  \rightarrow R \\
+\end{array}
+\]
+
+This is a perfectly good deterministic law.  There are no conserved
+quantities here.  It's certainly true that over reasonable lengths of
+time the most likely thing you'll find is red.  You'll simply find
+nothing else after a while.  However it is not true that that there is
+equal a priori probabilities of any colors.  This system lacks one
+property that real systems of movement has that Susskind calls
+``conservation of information'', but you could equally well call it
+the ``conservatio of distinctions''.  It would mean that distinctions
+don't merge.  Because the paths merge information is lost.  This is
+irreversibility, but it is not thermodynamical irreversibility.  The
+rules of statistical mechanics is fundamentally based on the fact that
+physics at the deepest level that the laws are consistent with the
+conservation of information (distinction).  This is a strong
+restriction, without it we'll get nowhere.  It is a good physical
+assumption and it is a consequence of a basic assumption of classical
+mechanics (Liouville's theorem).  There is a quantum mechanical
+version (unitarity) but we'll not do much using QM in this course.
+
+The classical world is fully deterministic, but it apparently
+statistical because it is coupled to a much larger system (a heat
+bath) about which you know very little.  You don't know enough about
+the heatbath to specify the details of it.  Things are random not
+because there is any intrinsic randomness in the laws of physics, but
+simply because you don't know enough.  That's the basic idea of
+entropy.
+
+This principle of conservation of distinction is so important. It is
+rarely mentioned because it is so deeply assumed by anyone that does
+classical physics. Susskind would call it the zeroeth law of
+thermodynamics, except that that name is used by something else, so
+perhaps we should call it the -1th law of thermodynamics.
+
+Classical mechanics deal with continous systems with momenta.  Each
+coordinate has associated with a set of momenta.  Of course there is
+deeper idea about the idea of momentum but for the purpose of this
+class it can be just ordinary momentum.
+
+So what is the state of a system? Well, for a simple die it was just
+the label color.  If it's two dice, it is a pair of colors.  For a
+single point particle, it is  a collection of coordinates and the
+corresponding momenta.  The historical symbol for momentum is ``p''
+and for coordinate is ``x''.  For an ordinary particle it would be
+three coordinates for position and three for momentum, so the phase
+space for a particle is six dimensional, and the configuration space
+(the position coordinates) is three dimensional.
+
+What constitutes  the state is the pair of the x and the p, this is
+because if you want to know where a particle is next, you not only
+need to know where it is, but you have to know where it is moving.
+So for a single particle the (x,p) is like the color of the surface of
+the dice, it labels the state of a particle.  For a many-particle
+system there are many x-es and many p-s.
+
+But first, what is a history? What is an orbit?  You have some
+starting point, and then you have laws of motion, Newton's or others,
+and then you use them to follow the particle in time.  Little
+``ticks'' that are of some length.  The motion is of course continous
+but you can divide it up.  You will then get the trajectory in the
+phase space.   There are diffent types of trajectories.  In some
+systems you just give a particle a litte push and it goes of into
+infinity, but for the kinds of systems we are interested in that are
+contained within finite boxes, there is a rule that the the orbit will
+usualy wind up coming back or something, perhaps not the same point ;-)
+
+What doesn't happen is that trajectories never, ever merges.  This is
+the analog of saying that distinctions are preserved
+
+\begin{itemize}
+
+\item Trajectories never cross. 
+
+\item What doesn't happen is that trajectories never, ever merges.  This is
+the analog of saying that distinctions are preserved
+
+\item A given starting point never splits.  It is always
+  determinstic. \mXXX{ this should just be two points}
+
+\end{itemize}
+
+
+The different trajectories, whatever they do, may be labelled by their
+energy, and that energy doesn't change. You pick it once and for all
+and it stays that way forever.
+
+Consider an harmonic oscillator.   The motion in phase space is just
+an ellipsis.  However, there are many trajectores, and what
+distinguishes them is the energy of the oscillator and where you
+started them.  They don't cross, but that's a general principle.
+
+Never crossing and never merging is not quite enough for us, because
+there is a situation that is almost as bad as merging, and that is
+where the trajectories don't actually merge, but come so closely
+together that they get asymptotically closer.  For practical purposes
+you would then lose distinction (just wait long enough), but that
+doesn't happen.  Trajectories don't merge in that way either.  There
+is a theorem that states this (Liouville's theorem).  It says.
+
+\screenshot{liouville}{An illustration of Liouville's theorem.}
+
+\begin{quote}
+
+If you start with all of the points in a patch of phase space, at time
+t=0, and follow each one of them for a certain length of time, the
+volume of the patch of phase space doesn't change. \footnote{The unit
+  of momentum is called ``action'', and for a three dimension
+  particle, the action is of dimension \(l^3p^3\), so when we're
+  talking about  ``volumes of phasespace'', it is volums over this
+  type of unit.}
+
+\end{quote}
+ 
+So if the points contract in one direction then they spread out in
+another.  This is another way to say that distinctions are not lost.
+
+Now an important point:  Can it happen that the volume of this space
+stays conserved, but it branches out in some horrible, fractallated
+way so that it apparantly fills up the alloted volume in the
+phasespace. The answer is ``yes'', and it usually happens. However, it
+preseves it topology, no merges etc.
+
+Liouville's theorem can be proved with a starting point either int he
+Lagrangian form of classical mechanics, the Hamiltonian form or the
+principle of least action.  It all traces back to the principle of
+least action.
+
+If we have a system that is enclosed so that it doesn't escape into
+infinity, and it shares the property with there are no merges and
+splittings etc., then if the system moves throught he phase space fast
+enough (or you wait long enough), then there is equal a priori
+probability (under the constraint of conserved energy, leading to
+surfaces in phase-space), are uniform in
+the phase space. \mXXX{Wow!}  Each volume of the phase space has equal
+a priori probability.
+
+A sidenote about ergodicity. Ergotic is a bit related to ``chaotic'',
+it means that the phase point wanders about thoroughly througout the
+phasespace and pretty much touches every point int he phase space. In
+the above, Susskind is assuming that the system is ergodic.  When a
+system is not ergodic it means there are extra conserved quantities:
+When a system is not ergodic that means that the phase space divides
+up into different pieces which carries different conserved quantities.
+Then you have to pick a value of the conserved quantity.
+
+
+\screenshot{harmonicoscilatorphasespace}{The phase space of the
+  harmonit oscillator (to the right), orbits separated by energy
+  levels.}
+
+If a path in the phasespace doesn't touch every point in the
+phasespace, it means that there are conserved quantities.  For example
+for the harmonic oscillator the phase space points stay on a given
+ellipse.  The time average for each point on every point on the
+ellipse will be uniform for the single ellipse subspace. 
+
+ 
+
+
+
+
+
+%%
+%% End of content
+%%
+
+\printindex
+\end{document}
+
