@@ -553,7 +553,154 @@ for the harmonic oscillator the phase space points stay on a given
 ellipse.  The time average for each point on every point on the
 ellipse will be uniform for the single ellipse subspace. 
 
- 
+Comment from the audience:  Now, you can map the points of the unit
+circle to a circle with area two, and that does not preserve area but
+it is one to one.  Susskind response that what we're looking at is
+more than one to one, it is phase-space volume preserving.  The basic
+justification for the principle of equal voume in phase space really
+is quantum mechanical.  Statistical mechanics as it is delt with in
+this class is fully classical so he's relucant to go to much into it,
+but if we  were to do it we would divide volume into small volumes
+that are hbar on the sides, defined with the maximum amount of
+certainty allowable and take it from there.     But we wont.  However,
+it is only i quantum mechanics it is true that the number of states in
+a system is discrete and that you can actually count them and make it
+more like the ``loopy'' system described earlier.
+
+
+Now let's get to entropy.  We've discussed energy.  Energy is a
+conserved quantity, we fix it for a system, and within a perticular
+value of energy the system may hop around the states it is allowed to
+be in, and you then get the average probabilitiy that the system spend
+in any given state is equal for all states (average over the
+statespace).
+
+Now entropy. You might have thought that the next topic in
+thermodynamics would be temperature at you might think temperature is
+more intuitive than entropy, but it's really not.  You have of course
+a body sense of what temperature is, but you don't have a sense of
+what hot and cold is.    However, it is energy and entropy that are
+the more basic concepts so let's talk about that, but before we do
+that let's talk about probability distributions.
+
+\screenshot{probabilitydistribution}{Just this probability
+ distribution from somewhere}
+
+It has a horizontal axis for the states, and a vertical axis for the
+probabilities.  It may be discrete or continous.   The only two
+requirements for something to be a probability distribution is that it
+is positive everywhere and that it sums (or integrates) to one.  For
+integrals we talk about probability densities.
+
+In the discrete case, if there is some function of i (the system
+state), some quantity F
+that depend on the system.  What is the average value of F (we'll use
+the standard fysicist  notation for averages and put a bracket around
+it: <F> ).  The definition of the average:
+
+% XXX The stupid aquaemacs doesn't allow me to type in
+%        LaTeX formatting codes, in LaTeX *DOH*
+% <F> = /sum_i F(i) P(i)
+
+just sum the values, and weight them by their probabilities.
+
+Now keep in mind that the space of states can be multidimensional, but
+they are enumerated by the index. Suppose that the only thing we know
+about the system is that is in one of ``m'' possible states.  What is
+the probability of being anywhere else than in one of the m states i s
+zero.   The probability of being in one of the m states is uniformly
+1/m.  Btw, saying ``nothing but'', that is another way of saying
+``equally probably'' that they are in any one of the ``m''.  A
+statement of complete ignorance is equivalent to  a statement of equal
+probabilities.
+
+The ``m'' is a measure of our ignorance. The bigger ``m'', the bigger
+our ignorance.   There are many ways of we can be ignorant: The state
+may be very small (microscopic)  and  there may be very many of them.
+All you know is some restrictive information.   ``m'' is not the only
+statement of ignorence.  Any monotonically increasing measure of m.
+The one called ``entropy'' is the logarithm of m, called S (for
+entroy, Susskind don't know why)
+
+S = log m % XXX Math markup missing
+
+S= - log (1/m)
+
+The basis of the logarithm can differ a bit between branches of
+science.  In Physics it is always ``e'', but in information theory it
+is usually ``2''.  The conversion factor is just a factor log(2).   
+
+Why take the logarithm?  because it's useful :-)  Let's look at an
+example: Assume that you have N coins each of which can be heads or
+tails.  Supposing you know nothing about the system, each of the 2^N
+configurations are equally probably, so the entropy is N log(2).
+Since the entropy is proportional to the number of coins, it makes
+sense to talk about entropy per coin.  By taking the logarighm, we
+change the description from something really large, to something that
+is additive with respect to the number of components in the system.
+You have something that is proportional to the degrees of
+freedom. Entropy like energy is something that adds up for a system.
+Entropy is measured in bits.
+
+Supposing we know everything about the system, in this case exactly
+which configuration we're in. That would mean that ne of the states
+has probabiity 1 and all the other has zero.  That would give an
+entropy of zero = log(1).    With this definition of entropy, entropy
+isn't just defined by the system, but your state of knowledge about
+it.  That is a bit rediculous, because we will treat is as a quantity
+of the system (we'll come to why), but really it's a function of the
+probability distribution.
+
+\screenshot{entropycontinous }{Entropy based on a general probability
+  distribution}
+
+Now let's find to some other definition.  Consider a  probability
+that has some width, close to zero (but not zero) and close to one
+(but not 1) at various places.   Can we generalize the the number of
+states under the probability distribution (the logarithm of it).  The
+definition is simply the average of the    -<log(P(x))>  (negative
+since P < 1 so log(P) < 0.  How do we calculate that? We just use the
+formula for averages.
+
+
+% Go over this and texifyit once the keyboard is working properly
+
+<F(i)> = sum F(i)P(i)
+
+S = -Sum  P(i) log(P(i))
+
+This is the final definition of entropy.  The contributions from the
+probable regions are more important than the others.
+
+Bolzmann's constant traces back to the definition of temperature.
+Energy and entropy together determine temperature.  In the early days
+physicists, steam engineers etc, were interested in temperature they
+really didn't know what temperature was.  They knew how to measure it
+(with thermometers). They didn't even have the idea of an absolute
+zero temperature.  The temperature of a gas is a measure of the energy
+of the individual molecules of the gas (more or less).  The conversion
+factor between entropy and temperature wasn't known.  Bolzmann (and
+Maxwell) realized for an ideal gas energy is a measurement of the
+energy of the molecules.  The conversion factor was unknown basically
+because they didn't know how many molecules there were in a volume of
+gas. Bolzmann's constant was unknown.   Today we know, so Bolzmann's
+constant is known.  We can, if we like, work with units of temperature
+which is really just units of energy.  We can measure temperature in
+Joules.  That's just a historical fact.  Bolzmann did not know the
+value of his own constant.   Bolzmann was so depressed by the fact
+that he didn't know his own constant that he committed suicide, and
+the next year Susskind believe Einstein figured out what Bolzmann's
+constant was from the brownian motion (Susskind then says he don't
+know why Bolzmann committed suicide, but believes it wasn' because he
+didn't know his own constnt).  Newton btw didn't know his own constant
+either.  It took many years for Newton's constant to be measured.
+Planck knew his constant ;)   One of the hard constants to measure was
+the electric charge.  It was easy to measure the ration of charge to
+mass, then it took some time before Milliken figured out how to
+measure the charge separate from the mass. Whoever figured out that
+electrons had charge didn't know the value of the charge (it may have
+been Benjamin Franklin).
+
 
 
 
