@@ -103,7 +103,7 @@
 \newcommand{\braKet}[2]{\ensuremath{\left\langle{}#1{}\mid{#2}\right\rangle}}
 \newcommand{\BraKet}[3]{\ensuremath{\left\langle{}#1{}\mid{#2}\mid{#3}\right\rangle}}
 \newcommand{\evolvesto}[2]{\ensuremath{{#1}\mapsto{#2}}}
-\newcommand{\inrange}[3]{\ensuremath{{#1} \in \braces{{#2}, \ldots,{#3}}}}
+\newcommand{\inrange}[3]{\ensuremath{{#1} \inx \braces{{#2}, \ldots,{#3}}}}
 
 \newenvironment{wikipedia}[1]
 {
@@ -216,13 +216,15 @@ that, or you in mind when writing this.   That said, if you have any
 suggestions to make the text or presentation better, please let me
 know.  My email address is la3lma@gmail.com.
 
-\chapter{Introduction}
+\chapter{Getting started with thermodynamics}
 
+
+\section{Dynamic systems}
 
 The first lecture starts with a longish quote, so I'll quote it in
 full:
 
-\begin{quote}
+\begin{quote}\it
 Statistical mechanics is often thought of as the theory of how atoms
 comine to form gases liquids solids and even plasmas and black body
 radiation.   But it is both much more and less than thhat.
@@ -232,15 +234,16 @@ methods.
 \end{quote}
 
 
-Here he breaks from reading the quote to interject: `` My son who studies neural networks uses, in fact about six
-months ago he called me up and said ``pop, did you ever hear about
-this thing called the partition function and I'm just learning about
-it for using it in Neural Networks.''
+Here he breaks from reading the quote to interject: `` My son who
+studies neural networks uses, in fact about six months ago he called
+me up and said ``pop, did you ever hear about this thing called the
+partition function and I'm just learning about it for using it in
+Neural Networks.''
 
-\begin{quote}
+\begin{quote} \it
 
-I have no doubt that some of the financial wizards of AIG and Lehman
-brothers used it.  Saying that statistical mechanics is the theory of
+I have no doubt that some of the financial wizards of \idx{AIG} and \idx{Lehman
+brothers} used it.  Saying that statistical mechanics is the theory of
 gases is rather like saying that calculus is the theory of planetary orbits.
 
 \end{quote}
@@ -252,9 +255,9 @@ never understood the difference between statistics and probabilities.
 It is probabilities under certain specific circumstanses.
 
 It is however a bit tricky to say actually how statistical mechanics
-really connects to reality.   rmz:  This is perhaps just a way of
+really connects to reality.   \mXXX{ This is perhaps just a way of
 saying that statistical mechanics is a purely empirical branch of
-physics :-)
+physics :-)}
 
 Let's start with coinflipping (fair coin, equal probabilities of heads
 and tails that sums to one).  A convincing argument that leads to the
@@ -303,7 +306,7 @@ know what the system is at one instance in time, you will know what it
 is at the next instance in time.  Now, with the motion of particles
 the motion is smooth and you can divide it into infinitesimal amounts
 of time. For a die it is (perhaps) a bit difference.  Assume that the
-die performs one operation per \index{elementary} time interval, and
+die performs one operation per \idx{elementary} time interval, and
 at each time the die rearranges itself only depending on what is shown
 at the top of the die.   You can then represent the motion of a  die
 as a rule:
@@ -340,6 +343,8 @@ O \rightarrow Y\\
 \end{array}
 \]
 
+\subsection{Conserved quantities}
+
 In every state of the system the system says what the system should do
 but it has the funny property of having two orbits or cycles.  Now,
 there is no way a priori to konw which cycle you are in.  So this is a
@@ -347,9 +352,9 @@ counterexample that there is equal a priori probability of being in a
 state.  However, the two-cycle example has something called a
 preserved state.   Let's call it Z (``zilch'').  It's 1 for the RGB orbit, and 
 and 0 for the YPO orbit.  The zilch is preserved, this is a
-conservation law.  So in this case, and indeed in any case a
+\idx{conservation law}.  So in this case, and indeed in any case a
 conservation law means that the system breaks up into different orbits
-with each orbit representing some conserved quantity.
+with each orbit representing some \idx{conserved quantity}.
 
 You now have two possibilities, either you fix the zilch, you then
 have equal probabilities of the different states with the preserved
@@ -405,8 +410,8 @@ time the most likely thing you'll find is red.  You'll simply find
 nothing else after a while.  However it is not true that that there is
 equal a priori probabilities of any colors.  This system lacks one
 property that real systems of movement has that Susskind calls
-``conservation of information'', but you could equally well call it
-the ``conservatio of distinctions''.  It would mean that distinctions
+``\idx{conservation of information}'', but you could equally well call it
+the ``\idx{conservation of distinctions}''.  It would mean that distinctions
 don't merge.  Because the paths merge information is lost.  This is
 irreversibility, but it is not thermodynamical irreversibility.  The
 rules of statistical mechanics is fundamentally based on the fact that
@@ -414,8 +419,10 @@ physics at the deepest level that the laws are consistent with the
 conservation of information (distinction).  This is a strong
 restriction, without it we'll get nowhere.  It is a good physical
 assumption and it is a consequence of a basic assumption of classical
-mechanics (Liouville's theorem).  There is a quantum mechanical
-version (unitarity) but we'll not do much using QM in this course.
+mechanics (\idx{Liouville's theorem}).  There is a quantum mechanical
+version (\idx{unitarity}) but we'll not do much using QM in this course.
+
+\subsection{Conditions for applying thermodynamic theory}
 
 The classical world is fully deterministic, but it apparently
 statistical because it is coupled to a much larger system (a heat
@@ -483,10 +490,14 @@ The different trajectories, whatever they do, may be labelled by their
 energy, and that energy doesn't change. You pick it once and for all
 and it stays that way forever.
 
-Consider an harmonic oscillator.   The motion in phase space is just
-an ellipsis.  However, there are many trajectores, and what
-distinguishes them is the energy of the oscillator and where you
+Consider an \idx{harmonic oscillator}\mXXX{When physicists don't know
+  what to do, they often look at how the harmonic oscillator will work
+  in whatever conditions are being studied.}.  The motion in phase
+space is just an ellipsis.  However, there are many trajectores, and
+what distinguishes them is the energy of the oscillator and where you
 started them.  They don't cross, but that's a general principle.
+
+\subsection{Liouville's theorem}
 
 Never crossing and never merging is not quite enough for us, because
 there is a situation that is almost as bad as merging, and that is
@@ -494,7 +505,7 @@ where the trajectories don't actually merge, but come so closely
 together that they get asymptotically closer.  For practical purposes
 you would then lose distinction (just wait long enough), but that
 doesn't happen.  Trajectories don't merge in that way either.  There
-is a theorem that states this (Liouville's theorem).  It says.
+is a theorem that states this (\idx{Liouville's theorem}).  It says.
 
 \screenshot{liouville}{An illustration of Liouville's theorem.}
 
@@ -513,6 +524,8 @@ volume of the patch of phase space doesn't change. \footnote{The unit
 So if the points contract in one direction then they spread out in
 another.  This is another way to say that distinctions are not lost.
 
+\subsection{Ergodicity}
+
 Now an important point:  Can it happen that the volume of this space
 stays conserved, but it branches out in some horrible, fractallated
 way so that it apparantly fills up the alloted volume in the
@@ -520,9 +533,9 @@ phasespace. The answer is ``yes'', and it usually happens. However, it
 preseves it topology, no merges etc.
 
 Liouville's theorem can be proved with a starting point either int he
-Lagrangian form of classical mechanics, the Hamiltonian form or the
-principle of least action.  It all traces back to the principle of
-least action.
+\idx{Lagrangian} form of classical mechanics, the \idx{Hamiltonian} form or the
+principle of least action.  It all traces back to the \idx{principle of
+least action}.
 
 If we have a system that is enclosed so that it doesn't escape into
 infinity, and it shares the property with there are no merges and
@@ -533,7 +546,7 @@ surfaces in phase-space), are uniform in
 the phase space. \mXXX{Wow!}  Each volume of the phase space has equal
 a priori probability.
 
-A sidenote about ergodicity. Ergotic is a bit related to ``chaotic'',
+A sidenote about \idx{ergodicity}. \idx{Ergotic} is a bit related to ``chaotic'',
 it means that the phase point wanders about thoroughly througout the
 phasespace and pretty much touches every point int he phase space. In
 the above, Susskind is assuming that the system is ergodic.  When a
@@ -568,18 +581,20 @@ a system is discrete and that you can actually count them and make it
 more like the ``loopy'' system described earlier.
 
 
-Now let's get to entropy.  We've discussed energy.  Energy is a
-conserved quantity, we fix it for a system, and within a perticular
-value of energy the system may hop around the states it is allowed to
-be in, and you then get the average probabilitiy that the system spend
-in any given state is equal for all states (average over the
-statespace).
+\section{Entropy}
 
-Now entropy. You might have thought that the next topic in
-thermodynamics would be temperature at you might think temperature is
+Now let's get to \idx{entropy}.  We've discussed energy.  \idx{Energy}
+is a conserved quantity, we fix it for a system, and within a
+perticular value of energy the system may hop around the states it is
+allowed to be in, and you then get the average probabilitiy that the
+system spend in any given state is equal for all states (average over
+the statespace).
+
+Now \idx{entropy}. You might have thought that the next topic in
+thermodynamics would be \idx{temperature} at you might think temperature is
 more intuitive than entropy, but it's really not.  You have of course
 a body sense of what temperature is, but you don't have a sense of
-what hot and cold is.    However, it is energy and entropy that are
+what hot and cold is.    However, it is \idx{energy} and \idx{entropy} that are
 the more basic concepts so let's talk about that, but before we do
 that let's talk about probability distributions.
 
@@ -593,47 +608,51 @@ is positive everywhere and that it sums (or integrates) to one.  For
 integrals we talk about probability densities.
 
 In the discrete case, if there is some function of i (the system
-state), some quantity F
-that depend on the system.  What is the average value of F (we'll use
+state), some quantity \(F\)
+that depend on the system.  What is the average value of \(F\) (we'll use
 the standard fysicist  notation for averages and put a bracket around
-it: <F> ).  The definition of the average:
+it: \(\ev{F}\) ).  The definition of the average:
 
-% XXX The stupid aquaemacs doesn't allow me to type in
-%        LaTeX formatting codes, in LaTeX *DOH*
-% <F> = /sum_i F(i) P(i)
+
+\[
+  \ev{F} = \sum_i F(i) P(i)
+\]
 
 just sum the values, and weight them by their probabilities.
 
 Now keep in mind that the space of states can be multidimensional, but
 they are enumerated by the index. Suppose that the only thing we know
-about the system is that is in one of ``m'' possible states.  What is
+about the system is that is in one of ``\(m\)'' possible states.  What is
 the probability of being anywhere else than in one of the m states i s
 zero.   The probability of being in one of the m states is uniformly
-1/m.  Btw, saying ``nothing but'', that is another way of saying
-``equally probably'' that they are in any one of the ``m''.  A
+\(1/m\).  Btw, saying ``nothing but'', that is another way of saying
+``equally probably'' that they are in any one of the ``\(m\)''.  A
 statement of complete ignorance is equivalent to  a statement of equal
 probabilities.
 
-The ``m'' is a measure of our ignorance. The bigger ``m'', the bigger
+The ``\(m\)'' is a measure of our ignorance. The bigger ``\(m\)'', the bigger
 our ignorance.   There are many ways of we can be ignorant: The state
 may be very small (microscopic)  and  there may be very many of them.
-All you know is some restrictive information.   ``m'' is not the only
-statement of ignorence.  Any monotonically increasing measure of m.
-The one called ``entropy'' is the logarithm of m, called S (for
+All you know is some restrictive information.   ``\(m\)'' is not the only
+statement of ignorence.  Any monotonically increasing measure of \(m\).
+The one called ``entropy'' is the logarithm of \(m\), called \(S\) (for
 entroy, Susskind don't know why)
 
-S = log m % XXX Math markup missing
-
-S= - log (1/m)
+\[
+\begin{array}{lccl}
+S &=& &\log m \\
+S&=& - &\log (1/m) \\
+\end{array}
+\]
 
 The basis of the logarithm can differ a bit between branches of
 science.  In Physics it is always ``e'', but in information theory it
-is usually ``2''.  The conversion factor is just a factor log(2).   
+is usually ``2''.  The conversion factor is just a factor \(\log(2)\).   
 
 Why take the logarithm?  because it's useful :-)  Let's look at an
 example: Assume that you have N coins each of which can be heads or
-tails.  Supposing you know nothing about the system, each of the 2^N
-configurations are equally probably, so the entropy is N log(2).
+tails.  Supposing you know nothing about the system, each of the \(2^N\)
+configurations are equally probably, so the entropy is \(N\cdot log(2)\).
 Since the entropy is proportional to the number of coins, it makes
 sense to talk about entropy per coin.  By taking the logarighm, we
 change the description from something really large, to something that
@@ -645,34 +664,33 @@ Entropy is measured in bits.
 Supposing we know everything about the system, in this case exactly
 which configuration we're in. That would mean that ne of the states
 has probabiity 1 and all the other has zero.  That would give an
-entropy of zero = log(1).    With this definition of entropy, entropy
+entropy of \(zero =\log(1)\).    With this definition of entropy, entropy
 isn't just defined by the system, but your state of knowledge about
 it.  That is a bit rediculous, because we will treat is as a quantity
 of the system (we'll come to why), but really it's a function of the
 probability distribution.
 
-\screenshot{entropycontinous }{Entropy based on a general probability
-  distribution}
+\screenshot{entropycontinous}{Entropy based on a general probability distribution}
 
 Now let's find to some other definition.  Consider a  probability
 that has some width, close to zero (but not zero) and close to one
 (but not 1) at various places.   Can we generalize the the number of
 states under the probability distribution (the logarithm of it).  The
-definition is simply the average of the    -<log(P(x))>  (negative
-since P < 1 so log(P) < 0.  How do we calculate that? We just use the
+definition is simply the average of the    \(-\ev{log(P(x))}\)  (negative
+since \(P < 1\) so \(\log(P) < 0\).  How do we calculate that? We just use the
 formula for averages.
 
-
-% Go over this and texifyit once the keyboard is working properly
-
-<F(i)> = sum F(i)P(i)
-
-S = -Sum  P(i) log(P(i))
+\[
+\begin{array}{lcl}
+\ev{F(i)} &=& sum F(i)P(i) \\
+S &=& -Sum  P(i) log(P(i))
+\end{array}
+\]
 
 This is the final definition of entropy.  The contributions from the
 probable regions are more important than the others.
 
-Bolzmann's constant traces back to the definition of temperature.
+\idx{Bolzmann's constant} traces back to the definition of temperature.
 Energy and entropy together determine temperature.  In the early days
 physicists, steam engineers etc, were interested in temperature they
 really didn't know what temperature was.  They knew how to measure it
@@ -686,30 +704,109 @@ because they didn't know how many molecules there were in a volume of
 gas. Bolzmann's constant was unknown.   Today we know, so Bolzmann's
 constant is known.  We can, if we like, work with units of temperature
 which is really just units of energy.  We can measure temperature in
-Joules.  That's just a historical fact.  Bolzmann did not know the
+Joules.  That's just a historical fact.  \idx{Bolzmann} did not know the
 value of his own constant.   Bolzmann was so depressed by the fact
 that he didn't know his own constant that he committed suicide, and
-the next year Susskind believe Einstein figured out what Bolzmann's
+the next year Susskind believe \idx{Einstein} figured out what Bolzmann's
 constant was from the brownian motion (Susskind then says he don't
 know why Bolzmann committed suicide, but believes it wasn' because he
-didn't know his own constnt).  Newton btw didn't know his own constant
+didn't know his own constnt).  \idx{Newton} btw didn't know his own constant
 either.  It took many years for Newton's constant to be measured.
 Planck knew his constant ;)   One of the hard constants to measure was
 the electric charge.  It was easy to measure the ration of charge to
-mass, then it took some time before Milliken figured out how to
+mass, then it took some time before \idx{Milliken} figured out how to
 measure the charge separate from the mass. Whoever figured out that
 electrons had charge didn't know the value of the charge (it may have
-been Benjamin Franklin).
+been \idx{Benjamin Franklin}, Susskind thinks).
+
+\subsection{Thermal equilibrium}
+
+Let us now postulate the existence of something called ``\idx{thermal
+equilibrium}'' of a system.   Let's state a necessary, but not
+necessarily sufficient condition:  Thermal equilibrium is not a
+property of an isolated system.  If you have a truely isolated system,
+it is {\em not} in thermal equilibrium.  It has an energy, and it's fixed.
+Thermal equilibrium is a property of a system \(A\)  in contact with a much
+bigger system \(B\), called the ``\idx{heat bath}''.  It is a very big system
+with many more degrees of freedom.   The combined system \((A+B)\) has a
+given total energy (that's an assumption).  For our purposes the
+bigger system can be thought of as a closed and isolated system.  It
+is either contained within insulating walls that don't allow any heat
+energy in or out, or something similar.  \(A+B\) can be an isolated system
+but \(A\) is not. One more thing.  \(A+B\) is isolated, but neither A nor B is
+isolated.  They weakly interact.  Thies meahns that the energy of the 
+interaction are very small compared to the energy of either \(A\) and \(B\),
+but the interactions, whatever they are, allow energy to go back and
+forth between \(A\) and \(B\).   The whole system has a definite energy, so
+whole system has a definite value of ``zilch'', (``zilch'' being
+energy in this case).  The whole system will move around its
+phasespace on a surface of constant energy, but it will move around
+and hop from pint to point. Among other things, the points will give
+different ways of partitioning the given amount of energy into the
+energy of the heatbath of the energy of \(A\).   Neither of these energies
+will have a definite predictable value.  It will fluctuate, it will
+have a \idx{probability distribution}.  
+
+\subsection{The relation between energy, temperature and entropy}
+
+\screenshot{energyofaovertime}{Time evolution of the energy of A}
+
+If you wait long enough there will be a probability of the energy of
+\(A\).  The various configurations of \(A\) may be discrete or
+continous, but over time the energy will have a time evolution.  The
+probability of an energy of \(A\) is a function of both the energy of
+\(A\) and the average energy of \(A\).
+
+\[
+  P(i, E_{\mbox{total}})
+\]
+
+There are two things you can calculate if the probability
+distribution.  You can calculate the average energy of \(A\), and you can
+calculate the entropy of \(A\). (\(S_A = \ev{\log P_A}\)). 
 
 
+\screenshot{deoverdslog2}{Energy change per bit of entropy}
+
+In general entropy increases with energy, which leads to the question:
+``How much change of energy is necessary to change the entropy by an
+amount of one bit''?  This change of energy per unit of entropy, is
+called ``temperature''.   To state it colorfuly, it is the energy
+needed to hide one more bit of information.
 
 
+An example of this is \idx{Landauers principle} in computing:  If you want
+to erase a bit of information in a computer, remembering that we can't
+destroy information (principle of conservation of distinction),  you
+wind up putting at least that bit into the heatbath surrounding the computer.
+How much energy do you put out of the and into the heatbath to hide a
+bit, well it's the temperature times the logarithm of two.  That is
+the energy you put into the environment when you erase a bit.
+
+\idx{Bolzmann's constant} incidentally is basicically the inverse of
+\idx{Avogadros number} (or something very close to it), this means that when
+you change a bit of information at a temperature \(T\) (which is the
+temperature of the surroundings). 
+
+The standard thermodynamic defintion of entropy also differs by the
+standard definition of entropy by a factor of \(b_k\) (upstairs or
+downstairs, Susskind can't remember :-).
+
+Einstein realized that the quantities of thermodynamics fluctuated.
+This would have consequences on small impurities of the system and
+knock them around.  What he did was essentially to calculate the
+fluctuations using statistical mechanics to various quantities like
+pressure and so on and demonstrated how that would knock small
+impurities about in the system.
+
+Next time we will work out and derive the Bolzmann distiribution. The
+Bolzmann distribution is the probability disrtibrution for the states
+in the system \(A\).
 
 
 %%
 %% End of content
-%%
+%% 
 
 \printindex
 \end{document}
-
