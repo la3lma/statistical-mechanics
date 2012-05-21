@@ -187,15 +187,22 @@ experimented with various note-taking techniques including free text,
 mindmaps and handwritten notes, but I've ended up using \LaTeX, since
 it's not too hard, it gives great readability for the math that
 inevitably pops up in the things I like to take notes about, and it's
-easy to include various types of graphics.  The graphics in this video
-is exclusively screenshots copied directly out of the videos, and to a
-large extent, but not  completely, the text is based on Susskind's
-narrative.   I haven't been very creative, that wasn't my purpose.  I
-did take more screenshots than are actually available in this text.
-Some of them are indicated in figures stating that a screenshot is
-missing.  I may or may not get back to putting these missing
-screenshots back in, but for  now the are just not there.  Deal with
-it .-)
+easy to include various types of graphics.  Also, it fits nicely into
+the rest of the set of tools I use to follow these lectures: More
+often than not I'm on a train during may daily commute.  My
+handwriting is bad on any given day, but when combined with a bumpy
+train it's totally unreadable, even by me.  However, having one window
+with Emacs, another with \LaTeX, and a screengrabber program nearby,
+it is easy to get in ``flow'' and stay there while producing notes
+that are possible to read.  It's nice :-) The graphics in this
+document is exclusively screenshots copied directly out of the videos,
+and to a large extent, but not completely, the text is based on
+Susskind's narrative.  I haven't been very creative, that wasn't my
+purpose.  I did take more screenshots than are actually available in
+this text.  Some of them are indicated in figures stating that a
+screenshot is missing.  I may or may not get back to putting these
+missing screenshots back in, but for now the are just not there.  Deal
+with it .-)
 
 This document will every now and then be made available on
 \url{http://dl.dropbox.com/u/187726/statistical-mechanics-notes.pdf}.   The
@@ -206,8 +213,8 @@ A word of warning: These are just my notes.  They should't be
 interpreted as anything else.  I take notes as an aid for myself.
 When I take notes I find myself spending more time with the subject at
 hand, and that alone lets me remember it better.  I can also refer to
-the notes, and since I've written them myself, I usually find them
-quite useful.   I state this clearly since the use of \LaTeX\ will
+the notes, and since I've written them myself, I usually find  what
+I'm looking for ;).   I state this clearly since the use of \LaTeX\ will
 give some typographical cues that may lead the unwary reader to
 believe that this is a textbook or something more ambitious.  It's
 not.  This is a learning tool for me.  If anyone else reads this and
@@ -281,7 +288,7 @@ can start thinking about such probabilities?  The answer is ``not
 obviously'', but let's look at an example. Let's consider a die where
 we replace the purple color by red.
 
-\screenshot{purplered}{Purple side of die replaced by red color.}
+\screenshot{purplered}{Purple side of die replaced by red color}
 
 It now have five colors.  You have no reason to believe there is no
 symmetry.  So what is the probability of flipping a red, so if you
@@ -358,7 +365,7 @@ with each orbit representing some \idx{conserved quantity}.
 
 You now have two possibilities, either you fix the zilch, you then
 have equal probabilities of the different states with the preserved
-quantum number (zilch), and the other possibility is you only may know
+\idx{quantum number} (zilch), and the other possibility is you only may know
 statistical information about the states then you use that.
 
 In physics, or at least in thermodynamics, energy  is the most
@@ -419,7 +426,7 @@ physics at the deepest level that the laws are consistent with the
 conservation of information (distinction).  This is a strong
 restriction, without it we'll get nowhere.  It is a good physical
 assumption and it is a consequence of a basic assumption of classical
-mechanics (\idx{Liouville's theorem}).  There is a quantum mechanical
+mechanics (\idx{Liouville's theorem}).  There is a \idx{quantum mechanical}
 version (\idx{unitarity}) but we'll not do much using QM in this course.
 
 \subsection{Conditions for applying thermodynamic theory}
@@ -514,7 +521,7 @@ is a theorem that states this (\idx{Liouville's theorem}).  It says.
 If you start with all of the points in a patch of phase space, at time
 t=0, and follow each one of them for a certain length of time, the
 volume of the patch of phase space doesn't change. \footnote{The unit
-  of momentum is called ``action'', and for a three dimension
+  of momentum is called ``\idx{action}'', and for a three dimension
   particle, the action is of dimension \(l^3p^3\), so when we're
   talking about  ``volumes of phasespace'', it is volums over this
   type of unit.}
@@ -618,12 +625,12 @@ it: \(\ev{F}\) ).  The definition of the average:
   \ev{F} = \sum_i F(i) P(i)
 \]
 
-just sum the values, and weight them by their probabilities.
+Just sum the values, and weight them by their probabilities.
 
 Now keep in mind that the space of states can be multidimensional, but
 they are enumerated by the index. Suppose that the only thing we know
 about the system is that is in one of ``\(m\)'' possible states.  What is
-the probability of being anywhere else than in one of the m states i s
+the probability of being anywhere else than in one of the m states is
 zero.   The probability of being in one of the m states is uniformly
 \(1/m\).  Btw, saying ``nothing but'', that is another way of saying
 ``equally probably'' that they are in any one of the ``\(m\)''.  A
@@ -681,40 +688,41 @@ since \(P < 1\) so \(\log(P) < 0\).  How do we calculate that? We just use the
 formula for averages.
 
 \[
-\begin{array}{lcl}
-\ev{F(i)} &=& sum F(i)P(i) \\
-S &=& -Sum  P(i) log(P(i))
+\begin{array}{lccl}
+\ev{F(i)} &=& &\sum F(i)P(i) \\
+S &=& -&\sum  P(i) log(P(i))
 \end{array}
 \]
 
 This is the final definition of entropy.  The contributions from the
 probable regions are more important than the others.
 
-\idx{Bolzmann's constant} traces back to the definition of temperature.
-Energy and entropy together determine temperature.  In the early days
-physicists, steam engineers etc, were interested in temperature they
-really didn't know what temperature was.  They knew how to measure it
-(with thermometers). They didn't even have the idea of an absolute
-zero temperature.  The temperature of a gas is a measure of the energy
-of the individual molecules of the gas (more or less).  The conversion
-factor between entropy and temperature wasn't known.  Bolzmann (and
-Maxwell) realized for an ideal gas energy is a measurement of the
-energy of the molecules.  The conversion factor was unknown basically
-because they didn't know how many molecules there were in a volume of
-gas. Bolzmann's constant was unknown.   Today we know, so Bolzmann's
-constant is known.  We can, if we like, work with units of temperature
-which is really just units of energy.  We can measure temperature in
-Joules.  That's just a historical fact.  \idx{Bolzmann} did not know the
-value of his own constant.   Bolzmann was so depressed by the fact
-that he didn't know his own constant that he committed suicide, and
-the next year Susskind believe \idx{Einstein} figured out what Bolzmann's
-constant was from the brownian motion (Susskind then says he don't
-know why Bolzmann committed suicide, but believes it wasn' because he
-didn't know his own constnt).  \idx{Newton} btw didn't know his own constant
-either.  It took many years for Newton's constant to be measured.
-Planck knew his constant ;)   One of the hard constants to measure was
-the electric charge.  It was easy to measure the ration of charge to
-mass, then it took some time before \idx{Milliken} figured out how to
+\idx{Bolzmann's constant} traces back to the definition of
+temperature.  Energy and entropy together determine temperature.  In
+the early days physicists, steam engineers etc, were interested in
+temperature they really didn't know what temperature was.  They knew
+how to measure it (with thermometers). They didn't even have the idea
+of an absolute zero temperature.  The temperature of a gas is a
+measure of the energy of the individual molecules of the gas (more or
+less).  The conversion factor between entropy and temperature wasn't
+known.  Bolzmann (and Maxwell) realized for an ideal gas energy is a
+measurement of the energy of the molecules.  The conversion factor was
+unknown basically because they didn't know how many molecules there
+were in a volume of gas. Bolzmann's constant was unknown.  Today we
+know, so Bolzmann's constant is known.  We can, if we like, work with
+units of temperature which is really just units of energy.  We can
+measure temperature in Joules.  That's just a historical fact.
+\idx{Bolzmann} did not know the value of his own constant.  Bolzmann
+was so depressed by the fact that he didn't know his own constant that
+he committed suicide, and the next year Susskind believe
+\idx{Einstein} figured out what Bolzmann's constant was from the
+brownian motion (Susskind then says he don't know why Bolzmann
+committed suicide, but believes it wasn' because he didn't know his
+own constnt).  \idx{Newton} btw. didn't know his own constant either.
+It took many years for Newton's constant to be measured.  \idx{Planck}
+knew his constant ;) One of the hard constants to measure was the
+electric charge.  It was easy to measure the ration of charge to mass,
+then it took some time before \idx{Milliken} figured out how to
 measure the charge separate from the mass. Whoever figured out that
 electrons had charge didn't know the value of the charge (it may have
 been \idx{Benjamin Franklin}, Susskind thinks).
@@ -749,6 +757,7 @@ have a \idx{probability distribution}.
 
 \subsection{The relation between energy, temperature and entropy}
 
+
 \screenshot{energyofaovertime}{Time evolution of the energy of A}
 
 If you wait long enough there will be a probability of the energy of
@@ -765,14 +774,17 @@ There are two things you can calculate if the probability
 distribution.  You can calculate the average energy of \(A\), and you can
 calculate the entropy of \(A\). (\(S_A = \ev{\log P_A}\)). 
 
+\[
+T = \frac{\partial{E}}{\partial{S}} \log 2
+\]
 
-\screenshot{deoverdslog2}{Energy change per bit of entropy}
+
 
 In general entropy increases with energy, which leads to the question:
 ``How much change of energy is necessary to change the entropy by an
 amount of one bit''?  This change of energy per unit of entropy, is
-called ``temperature''.   To state it colorfuly, it is the energy
-needed to hide one more bit of information.
+called ``\idx{temperature}''.   To state it colorfully, it is {\idx the energy
+needed to hide one more bit of information}.
 
 
 An example of this is \idx{Landauers principle} in computing:  If you want
@@ -800,13 +812,251 @@ pressure and so on and demonstrated how that would knock small
 impurities about in the system.
 
 Next time we will work out and derive the Bolzmann distiribution. The
-Bolzmann distribution is the probability disrtibrution for the states
+Bolzmann distribution is the probability distribrution for the states
 in the system \(A\).
+
+\chapter{Finding Bolzmann's constant}
+
+
+We'll start this presentation by reviewing some  math we are going to
+need. It's nothing fancy. Just stuff many of us has had in college or
+high school, but we'll need it so we review it and then we'll use it.
+
+\section{Lagrange multipliers}
+
+We're constantly minimizing or maximizing things subject to
+constraints.  The thing we're most likely to maximize or minimize is
+entropy, but we'll get to that later.  \idx{Thermal equilibrium} is a
+state of \idx{maximum entropy} so that means that we want to
+calculate the maximum as a variable of the functions that define it.
+Then there are \idx{constraints}.  We don't just want to maximize  a
+function, we want to do so subject to some constraints.  Some
+plausible constraints are:  That we know the total energy of the
+system, or the average energy of the system.  For example we might
+have a container full of a lot of molecules, we'll study one small
+piece of it. If we're told what the energy of a part is.  We know what
+the average energy is, and we want to {\em maximize the entropy
+  subject to the constraint that  total energy is fixed}.  That is the
+kind of problem that occurs over and over.  A related problem could be
+that we know the total amount of electric charge in a region, and we
+may want to maximize the total amount of entropy given a total amount
+of electric charge, or the total amount of angular momentum or
+whatever.
+
+
+\screenshot{contourofxsquaredysquared}{Contour plot of \(x^2 +y^2\) and \(x + 2y = 1\)}
+
+We constantly face problems of maximization and minimization of
+several variables subject to constraints on those variables.    What
+does that mean?  Let's take an example: We want to minimize \(x^2 +
+y^2\).  Now anyone can minimize that, it's of course \(x=y=0)\).  But
+suppose we add a constraint and say that we want the minimum, give
+that \(x + 2y = 1\).  To draw a picture we can draw the contours of \(x^2 +
+y^2\).  Right at the center it is minimized, and as we move away the
+value gets larger.  If we then draw the \(x + 2y = 1\) (figure
+\ref{contourofxsquaredysquared}).    By inspection it's not so hard to
+see that the minimum must be where the straight line is closest to the
+origin. How do you find that point?  One of the ways to do that would
+be to solve the linear equation with respect to one of the variables,
+plug that into the quadratic formula and solve.  Doing that you get
+\(x=1 - 2y\) which when substituted into the quadratic formula gives
+\((1 - 4y + 4y^2) + y^2 = 1 - 4y + 5 y^2\). Taking the derivative of
+this gives \(10y - 4\) which is equal to zero at \(y = 2/5\), by
+substituting into the straight line we find to be \(x + 2\cdot
+2/5 = 1\)  which makes \(x = 1/5\), so the minimum is at the point
+\((1/5, 2/5)\).   That's one way of doing it, but  in many cases the
+constraint is just to complicated to solve.  It might be a very
+complicated function.   However, there is another way of doing it, and
+that is called the method of  \idx{Lagrange multipliers}.
+
+The rule for Lagrange multipliers is: Given that you have some
+function in some variables, e.g. \(F(x,y)\)   and we want to minimize
+it subject to the constraint that some other function \(G(x,y) = 0\).
+The trick you take is to multiply the constraint by a new variable
+often called \(\lambda\) (lambda), called an \idx{lagrange
+  multiplier}.  You then add that multiplier timest the constrant to
+the function you want to minimize, and get a new function:
+
+\[
+  F(x, y) + \lambda G(x,y) = 0
+\]
+
+What we then do is to  minimize the new  function, ignoring the
+constraint.  You minimize by differentiating with respect to the
+variables and you set the result to zero, so we get a set of equations:
+
+\[
+\begin{array}{lclcl}
+\frac{\partial{F}}{\partial{x}} &+& \lambda \frac{\partial{G}}{\partial{x}} &=& 0 \\
+\frac{\partial{F}}{\partial{y}} &+& \lambda \frac{\partial{G}}{\partial{y}} &=& 0 \\
+\end{array}
+\]
+
+So we have two equations and two unknowns so we can solve it for \(x\) and
+\(y\), but what about the \(\lambda\)?  The answer will depend on
+\(\lambda\) . What we do with the \(\lambda\) is to adjust it so that
+the original constraint \(G(x,y) = 0\) is really satisfied.
+
+We'll see {\em how} it works in the example we solved above, then we'll see
+{\em why} it works.
+
+\subsection{How it works}
+
+We assume that \(F(x,y) = x^2 + y^2\) and we want to minimize that
+subject to the constraint that \(G(x,y) = x + 2y -1 = 0 \).  We follow
+the procedure above and get that we concoct the function:
+
+\[
+Z (x,y) =   F(x, y) + \lambda G(x,y)
+\]
+
+Then  we  find the partial derivatives and set them to zero:
+
+\[
+\begin{array}{lclcl}
+\frac{\partial{F}}{\partial{x}} &+& \lambda\frac{\partial{G}}{\partial{x}} &=& 0 \\
+2x &+& \lambda &=&0\\
+&& x &=& - \lambda/2\\
+\end{array}
+\]
+
+and 
+
+\[
+\begin{array}{lclcl}
+\frac{\partial{F}}{\partial{y}} &+& \lambda \frac{\partial{G}}{\partial{y}} &=& 0 \\
+2y &+& \lambda 2 &=& 0\\
+&& y&=& - \lambda\\
+\end{array}
+\]
+
+We now choose \(\lambda\) so that the constraint \(x + 2y -1 = 0)\) is
+satisfied.  We do this by substituting the solutions for \(x)\) and
+\(y\) in terms of \(\lambda\) and get \(-\lambda/2 - 2\lambda -1 = -
+-\lambda 5/2 -1 = 0\) which implies that \(\lambda = -2/5\).  We can
+then use this value of \(\lambda\), substitute back, and get that
+\(x=1/5\) and \(y = 2/5\), which is exactly the same result as we got
+above, as it should be :-)
+
+\subsection{Why it works}
+
+It only takes a little bit of algebra to show why this works.  This is
+in fact a very general function, the constraint didn't have to be
+linear, and the function to optimize on certainly didn't have to be quadratic.
+
+We'll proceed by solving a general problem both with substitutions and
+the Lagrange multiplier method. 
+
+\subsubsection{Using substitutions}
+
+  We start with a function \(F(x,y)\) subject to some constraint
+  \(G(x,y) = 0\), and we want to minimize \(F\).  We can go about this
+  by solving \(G\) with respect to one of the variables, so we get
+  some curve e.g. \(y(x)\). We then plug that into \(F\), so that we
+  get \(F(x,y(x)\).  This is now a function of a single variable \(x\)
+  since \(y\) is now a definite function of \(x\).  The next is to
+  differentiate with respect to \(x\) to find the minimum with respect
+  to \(x\):
+
+\[
+\begin{array}{lcl}
+F(x,y)&=& F(x,y(x)) \\
+D(F(x,y)) = \frac{\partial F}{\partial x} + \frac{\partial F}{\partial  y}\frac{d y}{d x}
+\end{array}
+\]
+
+\screenshot{smalldifferentialonG}{A small differential on G does not  change G}
+
+We then set \(D(F(x,y)) = 0\).  But what about \(\frac{d y}{d x}\),
+let's see what we can figure out about it.  The curve \(G(x,y)\)) is a
+curve of ``constant \(G\)''. Let's assume we're moving along it and
+make  small change along it, by definition this will not change
+\(G\). So, we can also write:
+
+\[
+   \frac{\partial G}{\partial x} dx + \frac{\partial G}{\partial y} dy  = 0
+\]
+
+this says ``G doesn't change when we make a small differential
+displacement''.  The reason we did this that it allows us to solve for
+the \(\frac{dy}{dx}\) in terms of things involving the constraint
+\(G\):
+
+\[
+ \frac{dy}{dx} = \frac{-\frac{\partial G}{\partial  x}}{\frac{\partial{G}}{\partial y}}
+\]
+
+Now we plug that in into the equation above and get:
+
+\[
+  \begin{array}{lclcl}
+   \frac{\partial F}{\partial x}  &+& \frac{\partial F}{\partial y}   \frac{dx}{dy}  &=& 0 \\
+   \frac{\partial F}{\partial x}  &-& \frac{\partial F}{\partial y}   \frac{\frac{\partial G}{\partial  x}}{\frac{\partial{G}}{\partial  y}}&=& 0 \\
+   \frac{\partial G}{\partial y}\frac{\partial F}{\partial x}  &-& \frac{\partial F}{\partial y}  \frac{\partial G}{\partial  x} &=& 0 \\
+ \end{array}
+\]
+
+That's not a bad looking equation.  After eliminating \(y\), this is
+the equation that solves for the minimum of \(F\) subject to \(G\).
+We're not gonna use this, but we will see that we get exactly the same
+result when using Lagrange multipliers.
+
+\subsubsection{Using Lagrange multipliers}
+
+Recall the two equations that followed from applying the method of
+Lagrange multipliers:\mXXX{The signs in the calculations below are a
+  bit bogus, needs to be checked again}
+
+
+\[
+\begin{array}{lclcl}
+\frac{\partial{F(x,y)}}{\partial{x}} &+&\lambda\frac{\partial{G(x,y)}}{\partial{x}} &=& 0 \\
+\frac{\partial{F}}{\partial{y}} &-& \lambda\frac{\partial{G}}{\partial{y}} &=& 0 \\
+\end{array}
+\]
+
+Now we're going to eliminate \(\lambda\) from this equation, we do
+that by solving for \(\lambda\) in one equation and plug it into the
+other:
+
+\[
+  \lambda = - \frac{\partial{F}}{\partial{x}} / \frac{\partial{G}}{\partial{x}}
+\]
+
+
+We then plug it in:
+
+\[
+\begin{array}{lclcl}
+\frac{\partial G}{\partial x}\frac{\partial{F}}{\partial{y}} &-&\frac{\partial F}{\partial x}\frac{\partial{G}}{\partial{y}} &=& 0 \\
+\end{array}
+\]
+
+By comparing, we see that it's the same equation (modulo a factor of  -1 :) as we got with
+the substitution method.
+
+\subsubsection{Summing up}
+
+There is an intuitive geometric picture of what's happening, but it
+takes longer to draw that than to do the arithmetic\mXXX{Perhaps find
+  some artwork online and paste it in here?}.  The method of Lagrange
+multipliers is completely equivalent to using substitutions, and is
+usually easier. The rules are:
+
+\begin{itemize}
+\item Add the function to be optimized to the constraint times a  factor \(\lambda\).
+\item Then differentiate the whole thing (the sum) as if you are trying to
+  minimize the sum.
+\item You then get two (or more equations), solve them for the
+  variables.
+\item Then you chose the \(\lambda\) so that the constraint \(G(x,y) =
+  0\)  is satisfied.\mXXX{Doing a few of these examples is good for you, do
+    them :-)}
+\end{itemize}
 
 
 %%
-%% End of content
-%% 
+%% End of content%% 
 
 \printindex
 \end{document}
