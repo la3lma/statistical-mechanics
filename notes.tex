@@ -18,6 +18,7 @@
 \newcommand{\defeq}{\ensuremath{\stackrel{\mbox{set}{=}}}}
 
 
+
 \renewcommand{\topfraction}{.85}
 \renewcommand{\bottomfraction}{.7}
 \renewcommand{\textfraction}{.15}
@@ -89,6 +90,12 @@
 \newcommand{\sqbraces}[1]{\ensuremath{\left[{#1}\right]}}
 \newcommand{\commutator}[2]{\sqbraces{{#1}, {#2}}}
 
+\newcommand{\kofn}[2]{\ensuremath{\parens{
+\begin{array}{c}
+{#2}\\
+{#1}
+\end{array}
+}}}
 
 \newcommand{\dyad}[1]{\ensuremath{\ket{{#1}}\bra{{#1}}}}
 \newcommand{\trace}[1]{\ensuremath{\mbox{tr}\, {#1} }}
@@ -1172,20 +1179,54 @@ A question we can now ask is: {\em How many ways are there to coosing
   \(n_2\) boxes in state 2 and so on forth?  How many ways are there
   to get a given set of \(n\)s?}
 
-The answer is\mXXX{Hmmm, probably \(n_1\) out of \(N\) + \(n_2\) out of \((N-N_1)\) and so on}.
+
+The answer 
 
 \[
     \frac{N!}{n_1!n_2!\ldots }
 \]
 
 This only works because \(0! = 1\) by definition, so all the
-unoccipied states gives 1.
+unoccupied states gives 1.
 
+\subsubsection{Why?}
 
+Why? Well, I'm guessing that 
 
+\[
+ \kofn{n_1}{N}\cdot\kofn{n_2}{N-n_1}
+ \ldots\kofn{n_i}{N-\sum_k^{i-1}n_k}\ldots =     \frac{N!}{n_1!n_2!\ldots }
+\]
 
+  And given that I believe that, I really should prove it, so here
+  goes :-).
 
+We know that \(\kofn{k}{n} =\frac{n!}{k!(n-k)!} \) so we can try
+substituting into the first pair of ``k of N''s and we boy are we
+lucky, because:
 
+\[
+\begin{array}{lcl}
+ \kofn{n_1}{N}\cdot\kofn{n_2}{N-n_1}&=&
+    \frac{N!}{n_1!(N-n_1)!} \cdot\frac{(N-n_1)!}{n_2!(N-n_1-n_2)!}\\
+&=&\frac{N!}{n_1n_2!(N-n_{1}-n_{2})}!)
+\end{array}
+\]
+
+which is really useful as a basis for an induction proof, since the
+result above can immediately generalized (through simple variable
+substitution) to
+
+\[
+\kofn{n_i}{N}\cdot\kofn{n_{i+1}}{N-n_i}=\frac{N!}{n_in_{i+1}!(N-n_i-n_{i+1})!}
+\]
+
+Now we already know that   \(\sum_k n_k = N\) (for all possible
+\(k\)s), so that if \(k\) gets large enough, we can deduce that
+\(({N-\sum_k n_k})!=0!=1\) which will serve as the termination of
+our induction.
+
+tbd
 
 
 %%
