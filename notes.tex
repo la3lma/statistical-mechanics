@@ -1035,7 +1035,7 @@ We then plug it in:
 By comparing, we see that it's the same equation (modulo a factor of  -1 :) as we got with
 the substitution method.
 
-\subsubsection{Summing up}
+\subsubsection{Summing up what we've got so far}
 
 There is an intuitive geometric picture of what's happening, but it
 takes longer to draw that than to do the arithmetic\mXXX{Perhaps find
@@ -1053,6 +1053,139 @@ usually easier. The rules are:
   0\)  is satisfied.\mXXX{Doing a few of these examples is good for you, do
     them :-)}
 \end{itemize}
+
+\subsection{Multiple variables and multiple constraints}
+
+One of the nice things about the method of Lagrange multipliers, is
+that it doesn't force you to single out a single variable for special
+treatment, it treats the variables symmetrically.   Suppose we had a
+function of several variables and a collection of constraints.
+
+\[F(_1x, \ldots, X_n)
+G_1=0, \ldots G_m = 0
+\]
+
+It's a precondition that you have more variables than constraints.  In
+the general case, there is no solution if you have more constraints
+than variables.
+
+You then introduce a Lagrange multiplier for each of the constraints:
+
+\[Z = F + \lambda_1 G_1  + \ldots + \lambda_1 G_m \]
+
+Then you make a new set of equations:
+\[
+  \frac{\partial Z}{\partial x_1} = 0, \ldots,   \frac{\partial Z}{\partial x_n} = 0
+\]
+
+Solve that system, and then choose all of the \(\lambda\)s you have so
+that all the constraints are satisfied.
+
+That is the method of Lagrange multipliers, and it is central to
+statistical mechanics.
+
+The typical thing to minimize is the entropy. Some typical constraints
+are total energy, total whatever (charge, spin, ...)
+
+\section{Stirling's approximation to the factorial function}
+
+\(N\) factorial \(N!\) occurs over and over in all sorts of probability
+contexts.  Every time you calculate permutations in order to calculate
+probabilities, \(N\) factorial occurs all over the place. Generally the \(N\)s
+that occurs are very large numbers, so it is important to have a
+reliable approximation which becomes better and better as \(N\) becomes large.
+
+\[    N! = 1\cdot 2 \cdot \ldots \cdot N  \]
+
+We will start by estimating \(\log(N!)\), and then we'll exponentiate
+that to get an estimate of \(N!\).
+
+\screenshot{logarithmfunc}{A rendition of the logarithm function}
+
+So what we're doing is to add up the area under the logarithm curve in
+figure \ref{logartithmfunc}.  When \(N\) becomes large, it's a good
+approximation of the sum to replace it by the integral, so let's
+consider then:
+
+
+\[
+\begin{array}{lcl}
+    \log(N!) &=& \log(1) + \log(2) + \log(3) +  \ldots + \log(N)  \\
+                 &=& \sum_{i=1}^N \log(i) \\
+                &\approx& \int_{i=1}^N \log(i) dx
+\end{array}
+\]
+
+We then have the problem of integrating \(\log(x)\).  It's easy to do,
+you just look it up in a table of integrals and find.  However, for
+very large values, \(\log(x)\) is almost constant, so an approximation
+of the approximation might be \(x\log(x)\).  Let's see what the
+derivative of  \(x\log(x)\) is just to see how far off we are:
+
+\[
+   (x\log(x))' = \log(x) + 1
+\]
+
+That's not entirely right, but it's easily fixable; we just add a term
+\(-x\) to the presumed derivative and we're where we want to be (the
+integral of \(\log(x)\):
+
+\[
+   (x\log(x) -x )' = \log(x)
+\]
+
+to continue the train of thought started above, we get:
+\[
+  \log(N!) \approx N\log(N) - N
+\]
+
+and that's Sterling's approximation for \(\log(N!)\), and it's in this
+form we'll usually use it.  However, just to complete the exercise we
+exponetialize this value to find the approximation of \(N!\):
+
+\[
+   N! \approx e^{N\log(N) - N} = N^N  e^{-N}
+\]
+
+\subsection{Number of ways a partitioning into states can be achieved}
+
+\screenshot{energystates}{Boxes in energy states}
+
+If we have en copies of the same system that can be in a state
+(corresponding to the energy state of the system).  Each of these
+boxes can be identified with a state on the \(E\) scale, (a particular
+\(i\)).  The boxes can be assigned to any  any of the \(i\)s, and any
+\(i\) may be mapped to by many boxes (or none).   There are \(N\)
+systems (boxes) each with its own state.
+
+We can now ask the question: How many boxes are there in state \(i\)?
+In general the answer will be an integer \(n_i\) for all possible
+values of \(i\).  There will be a constraint that the sum of all the
+\(n_i\)s add up to number of boxes:
+
+\[
+    \sum_i n_i = N
+\]
+
+A question we can now ask is: {\em How many ways are there to coosing
+  a state for each box such that there are \(n_1\) boxes in state 1,
+  \(n_2\) boxes in state 2 and so on forth?  How many ways are there
+  to get a given set of \(n\)s?}
+
+The answer is\mXXX{Hmmm, probably \(n_1\) out of \(N\) + \(n_2\) out of \((N-N_1)\) and so on}.
+
+\[
+    \frac{N!}{n_1!n_2!\ldots }
+\]
+
+This only works because \(0! = 1\) by definition, so all the
+unoccipied states gives 1.
+
+
+
+
+
+
 
 
 %%
