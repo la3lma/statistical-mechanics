@@ -1226,7 +1226,439 @@ Now we already know that   \(\sum_k n_k = N\) (for all possible
 \(({N-\sum_k n_k})!=0!=1\) which will serve as the termination of
 our induction.
 
-tbd
+tbd.
+
+%lecture threee
+
+\section{The Bolzmann distribution}
+
+In an ensamble of particles there will be an energy distribution, and
+that distribution is, given that the particles are in a thermal equilibrium \idx{heat
+  bath}, is given by the \idx{Bolzmann distribution} (sometimes called
+the \idx{Maxwell, Bolzmann distribution}, but it was really Bolzmann
+who got it right.
+
+It's simplest for a system \(A\)to let the heatbath.  The system has
+a system of states.   We have a bunch of discrete states, there is a
+lowest energy level but no highest level, an infinite number of
+states.
+
+
+\screenshot{energystates2}{A bunch of copies of a system A}
+In a special case of heat bath, we assume a bunch of copies of the
+same system over and over again.  When \(A\)comes to thermal
+equilibrium in a heatbath, it is essential that heat can be exchanged
+between them.  That can happen in a variety of ways: Molecules moving
+about, radiation going back and forth etc.  We can think of it as
+pipes connecting all the copies.  There are \(N\) copies, and \(N\) is
+very large.    
+
+We will now talk about something called \idx{occupation numbers}.
+These are not the occupation numbers from quantum field theory,  is
+something else.   The question we are answering is ``How many boxes
+occupy a particular energy lever \(i\)''.   There can in principle be
+any number of boxes in any individual states, so we introduce a
+notation.  The number of boxes, drawn from big \(N\) that occupies
+state \(i\) is denoted \(n_i\).   Now, most of these states will have
+zero boxes assigned to them, since there is an infinite number of
+states and only a finite number or boxes.  We will also assume that
+the total energy of the collection is fixed, let us call it
+\(E_{\mbox{total}}\).  We won't even define it, since there is an
+\idx{average energy} that  each box has, and they are all identical to
+each other.  When they come to thermal equilibrium they will all have
+the same energy just by symmetry.  So since all the boxes has the same
+energy, the total energy will simply be \(N\) times the average energy
+for each box:
+
+\[
+E_{\mbox{total}}= N \cdot E
+\]
+
+Notationalwize Susskind will sometimes use the ``overbar'', sometimes
+the ``angle brackets'' to indicate average energy, and sometimes (like
+above), just ignore any special notation.
+
+So we have the total energy as one fact.  Another fact we have is the
+set of \(n_i\)s. They are subject to two constraints:
+
+\screenshot{sumboxes}{The number of boxes doesn't change}
+
+\begin{enumerate}
+\item The number of boxes doesn't change (by assumption).
+\item \(\sum n_i = N\)
+\end{enumerate}
+
+Since \(N\) is bounded, most of the \(n_i\) states must be unoccupied.
+
+Furthermore, if we look at the total energy, that doesn't change
+either:
+
+\[
+\sum n_i E_ = E_{\mbox{total}} = N \brackets{E}
+\]
+
+We must remember that these sums are not over the boxes, they are sums
+over the energy levels.  Furthermore the number boxes in a state multiplied
+with the energy of a specific energy level, for all energy levels,
+must add up to the total energy.  The total energy never changes.
+
+These are constraints that apply whatever we do.
+
+Now, the next question to ask is:
+
+\begin{quote}
+How many ways are there, given a set of occupation numbers, that those
+occupation numbers can be realized?
+\end{quote}
+
+If we have a number of states and two boxes, where \(n_1 = 2\) and  \(n_2 = 0 \),
+how many ways can this add up? Well, just one.  Both boxes has to be
+in state 1.  In general there may be many ways to ensure that a
+given set of occupation numbers is fulfilled.  If for example wa say
+\(n_1 = 1\) and   \(n_2 = 1 \).  In general there will be many ways,
+and that number of ways to arrange the boxes is in general, the number
+of way to partition the energy into different sets of boxes (or
+something ;) is:
+
+\[
+\sharp = \frac{N!}{n_1! \cdot n_2! \cdot \ldots} = \frac{N!}{\prod n_i!}
+\]
+
+That's the answer to that combinatorical problem.
+
+In practical applications these things should be thought of as
+functions of the \(n_i\)s.  All the ``n''s in the problem is going to
+be large.  The capital \(N\) is a huge huge number.  So huge that the
+occupation numbers will be really big.  Technically they will be
+proportional to \(N\) itself.
+
+\screenshot{peakedfunction}{The number \(\sharp\) as a function of the
+  number of \(n\)s}
+
+We can think if the object \(\sharp\) as a function of the little
+\(n\)s.  It is also ha highly peaked function. When the \(n\)s get
+very large it will have a sharp peak, and it doesn't fluctuate very
+much.  That means that when the number of boxes get large, you can be
+surer and surer what the little \(n\)s are.  On the face of it this
+seems a little rediculous, but it simply means that the number of
+\(n\) is narrow with respect to \(N\) itself, the number \(n_i/N\)
+don't fluctuate very much.  This suggest that we should give them a
+name, so we'll call it \(P(i) = n_i/N\).  Why? because it makes a lot
+of sense to think of it as a probability of any given box to be in the
+state \(i\).  That is the basic tool.  Let us now rewrite the two
+constraints we had.  
+
+\begin{enumerate}
+
+\item First we get \(\sum P(i) = 1\), not a big
+surprise, the sum of the probabilities adds up to one.   
+
+\item The other constraint:  \(\sum n_i E_i = N \bar{E} \).   Now, if we divide
+this by capital \(N\), we get:
+
+\[
+    \bar{E} = \frac{\sum n_i E_i}{N} = \sum P(i) E_i
+\]
+
+This is the very familiar statement that for some quantity (in this
+case \(E\), the energy) for a system that is made up of states, the quantity of the
+system is the sum for all the components in  shstem of the product of
+the quantity for a state, times the probability of the system
+being in that state.
+\end{enumerate}nn
+Now, what are the \(P(i)\) values?   What we have to do is to find the
+maximum value of the \(\sharp\) function, as a function of the \(n\)s,
+subject to the two constraints listed above. 
+
+This may look as a bad problem to solve, but fortuntatly it is
+surprisingly easy to solve.  There are many way to do it, but the most
+efficient procedure is to say that you are maximizing \(\sharp\), you
+can instead say that you should maximize its logarithm.   This is
+interesting since it is simpler to work with sums than with products.
+So we need 
+\[
+\log({\sharp}) = \log\parens{\frac{N!}{n_1! \cdot n_2! \cdot \ldots}}=
+\log\parens{\frac{N!}{\prod n_i!}} = \log(N!) - \sum\log n_i! 
+\]
+
+But this simplifies when using the \idx{Stiring approximation}, which
+can be written in two ways, either \(N! \approx N^N e^{-N}\) or you
+can take logarithms on both sides and get \(\log N! \approx N\log N -
+N\).
+
+So using the latter we get, by substitution:
+
+\[
+ \log(\sharp) = N\log N - N - \sum \parens{n_i\log n_i - n_i}
+\]
+We can work a bit on this. We can use the assumption that for each
+\(i\) we have that \(n_i = NP(i)\).  We'll plot it in and grind it
+through, and then we get:
+
+\[
+ \log(\sharp) = N log N - N - N\sum\parens{P(i) \log\parens{P(i) N}} -\sum n_i
+\]
+
+Now, \(\sum n_i = N\), so we can use that and get:
+
+\[
+ \log(\sharp) = N log N - N - N\sum\parens{P(i) \log\parens{P(i) N}} + N
+\]
+
+That cancels out the leading capital N.
+
+\[
+ \log(\sharp) = \log(\sharp) = N \log N  - N \sum\parens{P(i) \log\parens{P(i) N}}
+\]
+ 
+and we can simplify even more:
+
+\[
+\begin{array}{lcl}
+ \log(\sharp) &=& N \log N - N \sum P(i) \log(P(i))+   N \parens{\sum P(i)} \log N\\
+&=& - N \sum P(i) \log(P(i)) \\
+&=& -  \sum_i N P(i) \log(P(i))
+\end{array}
+\]
+(using the fact that \(\sum P(i) = 1\) ).  We have seen this before.
+It is just \(N\) times the entropy.  Why \(N\) times? Well, there are
+\(N\) boxes.
+
+
+Incidentally, we can get rid of the \(N\) since we're trying to
+maximizing something here, and maximizing anything times \(N\) is
+essentially the same problem as maximizing the same thing multiplied
+by 1 instead of \(N\), and since the latter is simpler we'll do that.
+
+
+Our mathematical problem now is to figure out the number of way to
+satisfy a given occupation number,  is simply \( \log(\sharp) = - N \sum_i P(i) \log
+P(i) \).  Now what we want to do is to maximize this thing, including
+the minus sign.  We want to find the most likely distribution of
+occupation numbers (\(n_i\)s), subject to the two constraints listed above
+(\(\sum P(i) = 1\), and \(\sum P(i) E(i) = \bar{E}\).  How do we
+do this? Well, we use the method of \idx{lagrange multipliers}.  We
+gather the lagrange multipliers from each constraint, put them all
+together and get a set of equations that can be solved
+\(\log(\sharp)\) can be viewed either as a function of occupation
+numbers or probabilities, and in this case we're interested in the
+probabilities. So the formula we want to optimize is this:
+
+\[
+- \sum_i P(i) \log P(i)  - \alpha \sum P(i) - \beta \sum E_i P(i)
+\]
+Since everything here is summing over the same \(i\), we can move the
+sum to the outside:
+
+\[
+- \sum_i \parens{ P(i) \log P(i)  - \alpha P(i) - \beta E_i P(i)}
+\]
+
+To ensure that the energies don't get too large, we introduce
+constraint on the maximum number of state\footnote{I'm glossing over a couple
+of minutes of handwaving here ;-)}.  What is always true is that you
+can always make the boxes  of larger than the number of states, as
+long as the number of states is bounded. In practice the number of
+states is always bounded.
+
+The first sum is a sum of individual tuple  of parameters. You maximize
+it by maximizing it for each \(i\) separately, you then differentiate
+with respect to \(P(j)\), the expression above be becomes (the ``=0''
+comes from the recipie for Lagrange multipliers):
+
+\[
+     -\log P(j) - 1 - \alpha  - \beta E_j  = 0
+\]
+
+We can remove the minus signs, and 
+\[
+     \log P(j) +   1 + \alpha  + \beta E_j  = 0
+\]
+
+and what do you know? We now have a probability distribution
+
+\[
+ log P(j) = -( 1+\alpha) - \beta E_j
+\]
+
+To get \(P\) itself we exponentiate:
+
+\[
+  P_j = e^{-(1 + \alpha) } e^{-\beta E_j}
+\]
+
+The first term is ju st a number, it depends on a lagrange multiplier,
+but it doesn't depend on \(j\).  The dependence on \(j\) is that the
+probability that we're in the \(j\)th state is proportional to
+\(e^{-\beta E_j}\).  The probability for different energy levels falls
+off exponentially with different energy levels.  That's the basic
+property of the \idx{Bolzmann distribution}:  When maximizing the
+entropy, subject to the onstraint of a constant total energy tells us
+uniquely that the probability is proportional to the negative
+exponential of some constant times the energy of the state in question.
+
+Now, what's \(\beta\)? Well, it's just:
+
+\[
+  \beta = \frac{1}{k_B T}
+\]
+
+where \(T\) is temperature and \(K_B\) is \idx{Bolzmann's constant}.   
+Susskind prefers to work in units where \(K_B = 1\), and temperature
+has units of energy, in which case then \(\beta = 1/T\), but {\em why} that is so
+we have yet to establish.
+
+We have an independent definition of temperature from a previous
+lecture, but first we'll introduce some new notation.  HIstorically
+the term \(e^{-(1 + \alpha)}\) has been denoted \(1/Z\).  Why? It's a
+historical notation, so the Bolzmann distribution then takes the
+canonical (and very famous) form of:
+
+\[
+\frac{1}{Z} e^{-\beta E_j}
+\]
+
+Now what is \(Z\)? Well, it's just a Lagrange multiplier, so now that
+we have solved the problem, we must go back and fix the multipliers.
+To do that we have go back to the constraints and say what they
+satisfy the constraints.  Let's look at the constraint \(\sum P(i) =
+1\).  When using the formula above, it translates to:
+
+\[
+\frac{1}{Z} \sum e^{-\beta E_i} = 1
+\]
+
+This tells us what \(Z\) as a formula of \(\beta\)
+
+
+\[
+\sum e^{-\beta E_i} = Z(\beta)
+\]
+
+Now \(Z\) is called the \idx{partition function}.  This doesn't seem
+like very much, it's just a normalization factor.  However, we'll see
+that if you know the partition function, you know {\idx everything}.
+
+
+How do we choose all \(\beta\).  The other constraint is that the
+probabilities of all boxes times the energy in that box has to add up
+to the total energy:
+
+\[
+\sum_i P_i E_I = \overbar{E}
+\]
+
+If we assume that we know the average energy.  Let's write down the
+formula:
+
+\[
+  \frac{1}{Z}\sum_i e^{\beta E_i} E_i = \overbar{E}
+\]
+
+This does epress \(\beta\) , but e can do a slick thing by this by
+expressing it in terms of the partition function:   The trick is
+replace \(E_i\) with the derivative with respect to \(\beta\).   This
+is a standard trick (according to Susskind ;-): If I have \(e^{-\beta
+  E}\) and I want to multiply it by \(E\), one way of doing it is just
+to differentiate it with respect to \(\beta\), \(\frac{d}{d\beta}
+e^{-\beta E}\) and then we have to change the sign and we get this
+equality:
+
+\[
+-\frac{d}{d\beta}e^{-\beta E} = E e^{-\beta E}
+\]
+
+We then use this trick to rewrite the expression for average energy:
+
+
+\[
+  - \frac{1}{Z}\sum_i \frac{\partial}{\partial\beta} e^{\beta E_i} = \overbar{E}
+\]
+
+This can be simplified:
+
+\[
+  -\frac{\partial}{\partial\beta}  \frac{1}{Z}\sum_i e^{\beta E_i} =  \overbar{E} 
+\]
+
+but \(\sum_i e^{\beta E_i}\) is jsut the partition function \(Z\), so that
+means that we have a formula:
+
+\[
+\overbar{E} = -\frac{1}{Z(\beta)} \frac{\partial Z(\beta)}{\partial
+  \beta} = - \frac{\partial\log Z}{\partial\beta}
+\]
+
+
+This gives a relationship between energy and temperature.  
+\(\beta\) is both the lagrange multiplier and it is also the
+temperature.  This formula, together with the formula \(Z(\beta) =
+\sum_i e^{-\beta E_i}\) contains a great deal of information.
+
+ Thelogarithm of \(Z\) occurs so often that it is given its own name.
+ \[A = -T \log Z = - \frac{\log Z}{\beta}\] It is called the
+ \idx{Helmholtz free energy}.  It's just a definition.
+
+What is not a definition is the relationship between the Helmholtz
+free energy, the energy, and the entropy. 
+\[
+\begin{array}{lcl}
+A &=&  -\frac{\log Z}{\beta} \\
+ E &=& -\frac{\partial\log Z}{\partial\beta} \\
+\end{array}
+\]
+
+
+These are the two important quantityes, let's calculate the
+\idx{entropy} based on these.  The entropy is:
+
+\[
+ S = - \sum P_i \log P_i
+\]
+
+but now we know what \(P_i = \frac{1}{Z}  e^{-\beta E_i}\)  and also
+that \(\log P_i = -\beta E_i - \log Z\) so let's start cranking on this thing and
+see what we get:
+
+
+\[
+ S = -  \sum \frac{1}{Z}  e^{-\beta E_i}\parens{-\beta E_i - \log Z}
+\]
+
+
+The minus sign goes away
+
+
+\[
+ S =  \sum \frac{1}{Z}  e^{-\beta E_i}\parens{\beta E_i + \log Z}
+\]
+
+
+We can then express this in terms of the average energy:
+
+
+\[
+ S =  \sum \frac{1}{Z} e^{-\beta E_i}\parens{\beta E_i + \log Z}
+\]
+
+So, what's this?  If we look at the things in the parenthesis and
+multi ply them with the exponential, we see that this is just 
+\(\beta\) times  the average energy \(sum e^{-\beta E_i} E_i = \beta
+E\).  The second term has no dependency on \(i\), so since \(Z = \sum
+e^{-\beta E_i}\)\rmzXXX{Did I get that right? at 1:08:30 in lecture 3}, all that we are left with in the second term is
+\(\log Z\).   Thus we have:
+
+\[
+ S =  \beta E + \log Z = \beta (E - A)\)
+\]
+
+So the difference between the energy and the Helmholtz free energy is
+the entropy.  Assuming that \(\beta = 1/T\) we can write this as:
+
+\[
+  T \cdot S = E - A
+\]
+
 
 
 %%
