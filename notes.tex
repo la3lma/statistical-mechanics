@@ -81,10 +81,11 @@
 \newcommand{\sinc}[1]{\ensuremath{\mbox{sinc}{#1}}}
 
 
-\newcommand{\bb}[1]{\ensuremath{{\bf{#1}}}} % XXX Should be blackboard bold
+\newcommand{\bb}[1]{\ensuremath{{\bf{#1}}}} %  Should be blackboard bold
 \newcommand{\proj}[2]{\ensuremath{{\bb {#1}}_{#2}}}
 \newcommand{\braces}[1]{\ensuremath{\left\{{#1}\right\}}}
 \newcommand{\brackets}[1]{\ensuremath{\left[{#1}\right]}}
+\newcommand{\abrackets}[1]{\ensuremath{\left<{#1}\right>}}
 \newcommand{\parens}[1]{\ensuremath{\left({#1}\right)}}
 \newcommand{\absval}[1]{\ensuremath{\left|{#1}\right|}}
 \newcommand{\sqbraces}[1]{\ensuremath{\left[{#1}\right]}}
@@ -1545,14 +1546,14 @@ probabilities of all boxes times the energy in that box has to add up
 to the total energy:
 
 \[
-\sum_i P_i E_I = \overbar{E}
+\sum_i P_i E_I = \bar{E}
 \]
 
 If we assume that we know the average energy.  Let's write down the
 formula:
 
 \[
-  \frac{1}{Z}\sum_i e^{\beta E_i} E_i = \overbar{E}
+  \frac{1}{Z}\sum_i e^{\beta E_i} E_i = \bar{E}
 \]
 
 This does epress \(\beta\) , but e can do a slick thing by this by
@@ -1572,20 +1573,20 @@ We then use this trick to rewrite the expression for average energy:
 
 
 \[
-  - \frac{1}{Z}\sum_i \frac{\partial}{\partial\beta} e^{\beta E_i} = \overbar{E}
+  - \frac{1}{Z}\sum_i \frac{\partial}{\partial\beta} e^{\beta E_i} = \bar{E}
 \]
 
 This can be simplified:
 
 \[
-  -\frac{\partial}{\partial\beta}  \frac{1}{Z}\sum_i e^{\beta E_i} =  \overbar{E} 
+  -\frac{\partial}{\partial\beta}  \frac{1}{Z}\sum_i e^{\beta E_i} =  \bar{E} 
 \]
 
 but \(\sum_i e^{\beta E_i}\) is jsut the partition function \(Z\), so that
 means that we have a formula:
 
 \[
-\overbar{E} = -\frac{1}{Z(\beta)} \frac{\partial Z(\beta)}{\partial
+\bar{E} = -\frac{1}{Z(\beta)} \frac{\partial Z(\beta)}{\partial
   \beta} = - \frac{\partial\log Z}{\partial\beta}
 \]
 
@@ -1609,7 +1610,7 @@ A &=&  -\frac{\log Z}{\beta} \\
 \]
 
 
-These are the two important quantityes, let's calculate the
+These are the two important quantities, let's calculate the
 \idx{entropy} based on these.  The entropy is:
 
 \[
@@ -1642,14 +1643,15 @@ We can then express this in terms of the average energy:
 \]
 
 So, what's this?  If we look at the things in the parenthesis and
-multi ply them with the exponential, we see that this is just 
-\(\beta\) times  the average energy \(sum e^{-\beta E_i} E_i = \beta
+multi ply them with the exponential, we see that this is just
+\(\beta\) times the average energy \(sum e^{-\beta E_i} E_i = \beta
 E\).  The second term has no dependency on \(i\), so since \(Z = \sum
-e^{-\beta E_i}\)\rmzXXX{Did I get that right? at 1:08:30 in lecture 3}, all that we are left with in the second term is
-\(\log Z\).   Thus we have:
+e^{-\beta E_i}\)\mXXX{Did I get that right? at 1:08:30 in lecture 3},
+all that we are left with in the second term is \(\log Z\).  Thus we
+have:
 
 \[
- S =  \beta E + \log Z = \beta (E - A)\)
+ S =  \beta E + \log Z = \beta (E - A)
 \]
 
 So the difference between the energy and the Helmholtz free energy is
@@ -1659,7 +1661,95 @@ the entropy.  Assuming that \(\beta = 1/T\) we can write this as:
   T \cdot S = E - A
 \]
 
+We can now express the \idx{entropy} in terms of the  \idx{partition
+  function}.
 
+\[
+S/\beta = \frac{\log Z}{\beta} - \frac{\partial\log Z}{\partial\beta}
+\]
+
+
+or
+
+\[
+S = \log Z - \beta\frac{\partial\log Z}{\partial\beta}
+\]
+
+There are multiple formulas we can use, but the main upshot is that
+when we know \(Z\) we can calculate the energy, entropy, Helmholtz
+free energy.  There is some power in knowing the partition function.
+It's always the \(\log Z\) that comes into play, the logarithm
+is more interesting than the  \(Z\) itself.
+
+Let's take a look at the theory of statistical fluctuations.  Let's
+take a value \(X(i)\) that has some value for each state \(i\)of the
+system. We'd like to know the uncertainty or fluctuation of \(X\).
+The definition is given by centering (subtracting the average), and
+then square it and then take the average of the whole thing:
+
+\[ 
+   \abrackets{\parens{X(i) - \bar{X}}^2}
+\]
+
+This gives us the width of the distribution, it's called the \idx{root
+ mean square} or the \idx{variance} of \(X\).
+
+This can be simplified a bit:
+
+\[ 
+\begin{array}{lcccl}
+   \abrackets{\parens{X(i) - \bar{X}}^2} &=&   \abrackets{X^2 - 2X\bar{X} - \bar{X}^2}\\ 
+&=&    \abrackets{X^2}  - 2\bar{X}^2  \bar{X}^2  \\
+&=&  \abrackets{X^2} - \bar{X}^2 &=& \abrackets{X^2} -\abrackets{X}^2
+\end{array}
+\]
+
+(remember not to confuse the \idx{average of the square}, and the \idx{square of
+the average} in the expression above :-)    So the variance is the
+difference between the average of the square and the square of the
+average.  The smaller it is the narrower the variance.
+
+Let's now see how we can  calulate the variance in the energy.  If the
+variance is sharply peaked, it means that the variance of the energy
+is much smaller than the energy itself.  
+
+How far can we do to calculate the variance of the energy \(\abrackets{E} =
+-\frac{\partial{\log Z}}{\partial\beta} \)?  Let's see if we can
+ calculate the average of the square of the energy?
+
+Let's first calculate the average of the square of the energy:
+
+\[
+       \sum P(i) E_i^2 = \frac{1}{Z}\sum e^{-\beta E_i}E_i^2
+\]
+
+To get to the squared of energy, hit the second derivative:
+
+\[
+    \abrackets{E^2} = \frac{1}{Z} \frac{\partial^2 Z}{\partial\beta^2}
+\]
+
+The variance is:
+
+
+\[
+\frac{\partial^2 Z}{\partial\beta^2} - \parens{\frac{\partial\log Z}{\partial\beta}}^2
+\]
+
+This can also be written as
+
+\[
+\frac{\partial^2 Z}{\partial\beta^2}
+- \parens{\frac{1}{Z}\frac{\partial Z}{\partial\beta}}^2
+\]
+
+this can be simplified further:
+
+\[
+\frac{\partial^2\log Z}{\partial\beta  } =
+   \frac{\partial}{\partial\beta} \frac{1}{Z} \frac{\partial Z}{\partial\beta}
+\]
+1:23:47
 
 %%
 %% End of content%% 
