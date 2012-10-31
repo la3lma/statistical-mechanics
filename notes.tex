@@ -1847,7 +1847,63 @@ curves to the left in figure \ref{flatdistribution}.  The entropy will
 be absolutely maximal.  If you plot for energies, it will be tilted
 upwards since there are just a lot more states at high energy than low energies.
 
-Lecture 4 is next ;)
+
+\chapter{Volume, free energy and ideal gases}
+
+
+The definition of the \idx{Helmholtz free energy is}
+
+\[
+ -T \log Z = A
+\]
+
+we earlier also proved that
+
+\[
+TS - E = A 
+\]
+
+We have looked at \idx{fluctuations} but not look at \idx{control
+parameters}.  So before we look at ideal gases we will look at
+\idx{pressure} and how this is calculated.
+
+\screenshot{helmholtzfreepiston}{Two of the formulas describing the
+  Helmholtz free energy, and a schematic drawing of a piston with
+  molecules inside}
+
+The definition of pressure is through the force on the walls of a
+container.  If we have  a cylinder with a piston, we can measure the
+force on the piston due  (figure \ref{helmholtzfreepiston}) to the
+bouncing off the wall by the molecules.  The pressure is defined as
+the force divided by the area of the piston.  So the question is how
+we calculate the force? Well, we could calculate the force of the
+molecules bouncingn off the wall. It's an impulsive force, and we can
+average it over time and define the pressure that way.  This is
+neither a convenient nor a very general way of defining pressure.
+Molecules hitting walls is not the only way of getting pressure.
+Another way of getting pressure is that there may direct forces.  It
+may not necesarily be direct forces, it can also be a (semi) long
+range force that would push and pull on the piston, so we need a more
+general definition of forces on the piston on this setup.
+
+The definition of force in mechanics, is the change of energy of a
+system with respect to position, or the change of potential energy
+with respect to some coordinate.  Let \(U\) be potential energy:
+
+\[
+\frac{\partial U}{\partial x} = - F
+\]
+
+That suggests that we define the pressure on the piston as the change
+in energy of the system with respect to motion of the piston.  We can
+either think of the change when we move the piston a little bit.
+Another way to think about it is the amount of work done by the
+system, per unit position.  That will be the change of energy minus
+the change of energy of the gas in the cylider as we change the
+volume.  The work done by the piston is {\em  minus} the work done by
+the gas (energy conservation).  We will focus on the work done by the
+piston on the gas.
+
 %%
 %% End of content%% 
 
